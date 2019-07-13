@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-50</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_button_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,10 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>///Init
-title = noone;
+event_inherited();
+font = fnt_menu;
 draw_warning = false;
 draw_box = false;
-selected = false;
 </string>
           </argument>
         </arguments>
@@ -77,7 +77,7 @@ draw_warning = false;
           <argument>
             <kind>1</kind>
             <string>///Mouse over
-scr_mouseover_color();
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -362,23 +362,14 @@ if (title == "Fallen") {
           <argument>
             <kind>1</kind>
             <string>///Draw warning and box
-draw_set_color(global.text_color);
-draw_set_font(fnt_menu);
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-if (draw_box) {
-    //draw_sprite(spr_block,0,x,y+16);
-}
+event_inherited();
 if (title == "Fallen") {
-    draw_set_font(fnt_small);
     if (global.peril) then draw_set_color(global.selection_color);
+    draw_text(x,y,title);
 }
-draw_self()
+
 if (draw_warning) then draw_text(room_width/2,room_height/2,
 "First select or create#a list from File tab!")
-
-if (selected) then draw_set_color(global.selection_color);
-draw_text(x,y,title);
 </string>
           </argument>
         </arguments>

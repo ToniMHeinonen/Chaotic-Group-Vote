@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>name = noone;
+            <string>/// Init
+event_inherited();
+font = fnt_menu;
+name = noone;
 position = 0;
 </string>
           </argument>
@@ -50,7 +53,7 @@ position = 0;
           <argument>
             <kind>1</kind>
             <string>///Mouse over
-scr_mouseover_color();
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -133,11 +136,7 @@ if (global.voter &lt;= global.voter_amount) {
           <argument>
             <kind>1</kind>
             <string>///draw_rectangle and name
-draw_self();
-draw_set_font(fnt_menu);
-draw_set_color(global.text_color);
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
+event_inherited();
 draw_text(x,y,name);
 </string>
           </argument>

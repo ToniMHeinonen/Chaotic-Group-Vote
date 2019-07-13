@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>title = "Save and exit";
+            <string>/// Init
+event_inherited();
+font = fnt_menu;
+title = "Save and exit";
 found = false;
 </string>
           </argument>

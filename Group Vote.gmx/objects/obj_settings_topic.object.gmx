@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>obj_button_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Init
-title = noone;
-selected = false;
+event_inherited();
+font = fnt_menu;
 space = 32;
 
 x1 = x+150;
@@ -58,7 +58,7 @@ draw = false;
           <argument>
             <kind>1</kind>
             <string>///Mouse over
-if (!global.popup) then scr_mouseover_color();
+if (!global.popup) then event_inherited();
 </string>
           </argument>
         </arguments>
@@ -216,36 +216,6 @@ if (!global.popup) {
         }
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw title
-draw_self()
-draw_set_color(global.text_color);
-draw_set_font(fnt_menu);
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-if (selected) then draw_set_color(global.selection_color);
-draw_text(x,y,title);
 </string>
           </argument>
         </arguments>

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_button_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>title = "Next step";
+            <string>/// Init
+event_inherited();
+font = fnt_small;
+title = "Next step";
 cur_voter = global.voter;
 scr_load_vote_items();
 </string>
@@ -99,7 +102,7 @@ if (global.vote_points &gt; 0) {
           <argument>
             <kind>1</kind>
             <string>///Mouse over
-scr_mouseover_color();
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -157,35 +160,6 @@ if (obj_vote_master.state == "round1") or (obj_vote_master.state == "round2") {
     global.vote_points -= 1;
     instance_destroy();
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///draw_rectangle and name
-draw_self();
-draw_set_font(fnt_small);
-draw_set_color(global.text_color);
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-draw_text(x,y,title);
 </string>
           </argument>
         </arguments>

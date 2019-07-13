@@ -55,12 +55,14 @@ Hold shift - Adjust amount to change to 100
           <argument>
             <kind>1</kind>
             <string>/// Variables
+// Values which other object use
 global.UI_x = 500;
 global.UI_y = 500;
 global.UI_xOffset = 0;
 global.UI_yOffset = 0;
 
 showController = false;
+// Arrays to control modes
 controlValueX[0] = global.UI_x;
 controlValueX[1] = global.UI_xOffset;
 controlValueY[0] = global.UI_y;
@@ -104,10 +106,12 @@ if (keyboard_check_pressed(ord('M')) &amp;&amp; keyboard_check(vk_alt)) {
     control = controlMode[modeNum];
 }
 
+// Amount to change x and y value
 var amount = 1;
 if (keyboard_check(vk_control)) amount = 10;
 else if (keyboard_check(vk_shift)) amount = 100;
 
+// Change the correct value when using arrow keys
 if (keyboard_check_pressed(vk_right))
     controlValueX[modeNum] += amount;
 else if (keyboard_check_pressed(vk_left))
@@ -117,6 +121,7 @@ else if (keyboard_check_pressed(vk_down))
 else if (keyboard_check_pressed(vk_up))
     controlValueY[modeNum] -= amount;
 
+// Add values to global values
 global.UI_x = controlValueX[0];
 global.UI_xOffset = controlValueX[1];
 global.UI_y = controlValueY[0];
@@ -149,6 +154,7 @@ if (!showController) exit;
 draw_set_font(fnt_menu);
 draw_set_color(global.text_color);
 
+// Draw controller values on screen
 var xx = room_width - 250;
 var yy = room_height - 200;
 var yOffset = 70;

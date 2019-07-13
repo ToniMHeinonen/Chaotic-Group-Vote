@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>name = noone;
+            <string>/// Init
+event_inherited();
+font = fnt_small;
+name = noone;
 bonus = 0;
 extra = 0;
 whole = 0;
@@ -76,7 +79,7 @@ if (global.clicked[position] == false) then name = old_name;
           <argument>
             <kind>1</kind>
             <string>///Mouse over
-scr_mouseover_color();
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -156,12 +159,8 @@ if (!global.clicked[position]) &amp;&amp; (global.vote_points &gt; 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///draw_rectangle and name
-draw_self();
-draw_set_font(fnt_small);
-draw_set_color(global.text_color);
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
+            <string>/// Draw button
+event_inherited();
 draw_text(x,y,name);
 </string>
           </argument>

@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Init
+event_inherited();
+font = fnt_menu;
 title = "Exit";
 </string>
           </argument>
@@ -50,7 +52,7 @@ title = "Exit";
           <argument>
             <kind>1</kind>
             <string>///Mouse over
-scr_mouseover_color();
+event_inherited();
 </string>
           </argument>
         </arguments>

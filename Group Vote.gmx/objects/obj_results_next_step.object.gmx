@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>title = "Next step";
+            <string>/// Init
+event_inherited();
+font = fnt_menu;
+title = "Next step";
 </string>
           </argument>
         </arguments>
@@ -73,7 +76,7 @@ scr_destroy_items();
           <argument>
             <kind>1</kind>
             <string>///Mouse over
-scr_mouseover_color();
+event_inherited();
 </string>
           </argument>
         </arguments>

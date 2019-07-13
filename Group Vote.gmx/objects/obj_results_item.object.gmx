@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>name = noone;
+            <string>/// Init
+event_inherited();
+font = fnt_small;
+name = noone;
 bonus = 0;
 extra = 0;
 whole = 0;
@@ -56,7 +59,7 @@ names = 150;
           <argument>
             <kind>1</kind>
             <string>///Mouse Over
-scr_mouseover_color();
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -102,11 +105,7 @@ scr_scroll_control();
           <argument>
             <kind>1</kind>
             <string>///draw_rectangle and name
-draw_self();
-draw_set_font(fnt_small);
-draw_set_color(global.text_color);
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
+event_inherited();
 draw_text(x,y,name);
 draw_text(x+150,y,bonus+extra);
 draw_text(x+300,y,whole);
