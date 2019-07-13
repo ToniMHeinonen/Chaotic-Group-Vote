@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_button_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,6 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize
+event_inherited();
+font = fnt_small;
+hAlign = fa_left;
+
 name = noone;
 bonus = 0;
 extra = 0;
@@ -33,7 +37,6 @@ whole = 0;
 ignored = 0;
 group = noone;
 position = 0;
-selected = false;
 
 //starting values
 start_bonus = 0;
@@ -117,7 +120,7 @@ global.list_whole[position] = whole;
             <kind>1</kind>
             <string>///Mouse over
 if (!global.block) &amp;&amp; (!global.popup) {
-    scr_mouseover_color();
+    event_inherited();
 }
 </string>
           </argument>
@@ -249,24 +252,16 @@ if (!global.popup) &amp;&amp; (!global.block) {
           <argument>
             <kind>1</kind>
             <string>///draw_rectangle and name
-/*if (!global.scrolling) then scroll_x = 0;
-x = start_x + global.page*global.scroll_amount + scroll_x;*/
-//drawing text
-bonus_x = x+300;
-extra_x = x+400;
-whole_x = x+500;
-draw_self();
-draw_set_font(fnt_small);
-draw_set_color(global.text_color);
-draw_set_halign(fa_left);
-draw_set_valign(fa_middle);
-if (selected) then draw_set_color(global.selection_color)
+event_inherited();
+
+// Draw point values
 draw_text(x,y,name);
 draw_set_halign(fa_center);
 draw_set_color(global.text_color);
 draw_text(bonus_x,y,bonus);
 draw_text(extra_x,y,extra);
 draw_text(whole_x,y,whole);
+// If game is ignored, draw line on top of it
 if (ignored) {
     draw_line_width_colour(x-5,y,x+245,y,2,c_orange,global.text_color);
 }

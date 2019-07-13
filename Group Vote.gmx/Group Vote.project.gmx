@@ -84,6 +84,7 @@
     <objects name="Initialize">
       <object>objects\obj_initialize</object>
       <object>objects\obj_display_manager</object>
+      <object>objects\obj_UI_controller</object>
     </objects>
     <objects name="Voting">
       <objects name="Buttons">
@@ -101,7 +102,7 @@
       <object>objects\obj_show_vote_results</object>
       <object>objects\obj_results_item</object>
     </objects>
-    <object>objects\obj_draw_title_parent</object>
+    <object>objects\obj_button_parent</object>
     <object>objects\obj_spawner</object>
     <object>objects\obj_menu_button</object>
     <object>objects\obj_show_list</object>
