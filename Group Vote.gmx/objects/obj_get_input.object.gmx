@@ -584,8 +584,8 @@ if (creator == "Profile") {
                 
                 global.popup = false;
                 instance_destroy(obj_show_profiles);
-                instance_destroy(obj_list_profile);
-                instance_destroy(obj_settings_button);
+                scr_destroy_buttons(SAVED_PROFILE);
+                scr_destroy_buttons(SETTING_ITEM);
                 instance_create(show_profile_x,show_profile_y,obj_show_profiles);
                 instance_destroy();
             }
@@ -614,8 +614,8 @@ if (creator == "Profile") {
                 scr_save_profiles();
                 global.popup = false;
                 instance_destroy(obj_show_profiles);
-                instance_destroy(obj_list_profile);
-                instance_destroy(obj_settings_button);
+                scr_destroy_buttons(SAVED_PROFILE);
+                scr_destroy_buttons(SETTING_ITEM);
                 instance_create(show_profile_x,show_profile_y,obj_show_profiles);
                 instance_destroy();
             }

@@ -38,7 +38,7 @@ menuTitles[3] = "Exit";
 
 if (room == rm_menu) {
     for (var i = 0; i &lt; array_length_1d(menuTitles); i++) {
-        scr_create_button(obj_menu_button, middlex, start+space*i, menuTitles[i]);
+        scr_create_button(middlex, start+space*i, MENU, menuTitles[i]);
     }
 }
 
@@ -48,7 +48,7 @@ setTitles[2] = "Exit";
 
 if (room == rm_settings) {
     for (var i = 0; i &lt; array_length_1d(setTitles); i++) {
-        scr_create_button(obj_settings_topic, middlex, start+space*i, setTitles[i]);
+        scr_create_button(middlex, start+space*i, SETTING_TOPIC, setTitles[i]);
     }
 }
 </string>

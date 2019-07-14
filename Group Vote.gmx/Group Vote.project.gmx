@@ -30,41 +30,43 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_load_items.gml</script>
-    <script>scripts\scr_save_items.gml</script>
-    <script>scripts\scr_load_peril_items.gml</script>
-    <script>scripts\scr_save_peril_items.gml</script>
-    <script>scripts\scr_destroy_items.gml</script>
-    <script>scripts\scr_reload_items.gml</script>
-    <script>scripts\scr_increase_popup.gml</script>
-    <script>scripts\scr_popup_values.gml</script>
-    <script>scripts\scr_draw_middle_center_white_small.gml</script>
-    <script>scripts\scr_load_profiles.gml</script>
-    <script>scripts\scr_save_profiles.gml</script>
-    <script>scripts\scr_reload_profiles.gml</script>
-    <script>scripts\scr_save_vote_items.gml</script>
-    <script>scripts\scr_load_vote_items.gml</script>
-    <script>scripts\scr_save_vote_profiles.gml</script>
-    <script>scripts\scr_load_vote_profiles.gml</script>
-    <script>scripts\scr_reload_vote_profiles.gml</script>
-    <script>scripts\GLOBALS.gml</script>
-    <script>scripts\scr_reset_vote_points.gml</script>
-    <script>scripts\scr_reset_vote_whole.gml</script>
-    <script>scripts\scr_strip_round2_items.gml</script>
-    <script>scripts\scr_update_items.gml</script>
-    <script>scripts\scr_load_lists.gml</script>
-    <script>scripts\scr_save_lists.gml</script>
-    <script>scripts\scr_mouseover_color.gml</script>
-    <script>scripts\scr_scroll_control.gml</script>
-    <script>scripts\scr_scroll_control_horizontal.gml</script>
-    <script>scripts\scr_load_settings.gml</script>
-    <script>scripts\scr_save_settings.gml</script>
-    <script>scripts\scr_skip_ignored_items.gml</script>
-    <script>scripts\scr_drop_peril_items.gml</script>
-    <script>scripts\scr_add_peril_items.gml</script>
-    <script>scripts\scr_restore_item.gml</script>
-    <script>scripts\scr_drop_item.gml</script>
-    <script>scripts\scr_print_vote_results.gml</script>
+    <scripts name="Old unorganized">
+      <script>scripts\scr_load_items.gml</script>
+      <script>scripts\scr_save_items.gml</script>
+      <script>scripts\scr_load_peril_items.gml</script>
+      <script>scripts\scr_save_peril_items.gml</script>
+      <script>scripts\scr_reload_items.gml</script>
+      <script>scripts\scr_destroy_items.gml</script>
+      <script>scripts\scr_increase_popup.gml</script>
+      <script>scripts\scr_popup_values.gml</script>
+      <script>scripts\scr_draw_middle_center_white_small.gml</script>
+      <script>scripts\scr_load_profiles.gml</script>
+      <script>scripts\scr_save_profiles.gml</script>
+      <script>scripts\scr_reload_profiles.gml</script>
+      <script>scripts\scr_save_vote_items.gml</script>
+      <script>scripts\scr_load_vote_items.gml</script>
+      <script>scripts\scr_save_vote_profiles.gml</script>
+      <script>scripts\scr_reload_vote_profiles.gml</script>
+      <script>scripts\scr_load_vote_profiles.gml</script>
+      <script>scripts\GLOBALS.gml</script>
+      <script>scripts\scr_reset_vote_points.gml</script>
+      <script>scripts\scr_reset_vote_whole.gml</script>
+      <script>scripts\scr_strip_round2_items.gml</script>
+      <script>scripts\scr_update_items.gml</script>
+      <script>scripts\scr_load_lists.gml</script>
+      <script>scripts\scr_save_lists.gml</script>
+      <script>scripts\scr_mouseover_color.gml</script>
+      <script>scripts\scr_scroll_control.gml</script>
+      <script>scripts\scr_scroll_control_horizontal.gml</script>
+      <script>scripts\scr_load_settings.gml</script>
+      <script>scripts\scr_save_settings.gml</script>
+      <script>scripts\scr_skip_ignored_items.gml</script>
+      <script>scripts\scr_drop_peril_items.gml</script>
+      <script>scripts\scr_add_peril_items.gml</script>
+      <script>scripts\scr_restore_item.gml</script>
+      <script>scripts\scr_drop_item.gml</script>
+      <script>scripts\scr_print_vote_results.gml</script>
+    </scripts>
     <scripts name="Sorting">
       <script>scripts\scr_compare_strings.gml</script>
       <script>scripts\scr_compare_reals.gml</script>
@@ -75,6 +77,7 @@
       <script>scripts\scr_sort_items.gml</script>
     </scripts>
     <script>scripts\scr_create_button.gml</script>
+    <script>scripts\scr_destroy_buttons.gml</script>
     <script>scripts\scr_layer_control.gml</script>
     <script>scripts\scr_layer_control_pressed.gml</script>
     <script>scripts\init_necessary_button_values.gml</script>
@@ -82,6 +85,17 @@
     <script>scripts\scr_select_this.gml</script>
     <script>scripts\scr_check_if_selected.gml</script>
     <script>scripts\scr_after_clicked.gml</script>
+    <script>scripts\scr_init_button_values.gml</script>
+    <scripts name="Clicked Buttons">
+      <script>scripts\scr_clicked_menu.gml</script>
+      <script>scripts\scr_clicked_setting_topic.gml</script>
+      <script>scripts\scr_clicked_setting_item.gml</script>
+      <script>scripts\scr_clicked_saved_profile.gml</script>
+      <script>scripts\scr_clicked_popup.gml</script>
+    </scripts>
+    <scripts name="Helper">
+      <script>scripts\create_array.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_menu</font>
@@ -110,13 +124,11 @@
       <object>objects\obj_results_item</object>
     </objects>
     <objects name="Menu">
-      <object>objects\obj_menu_button</object>
+      <object>objects\obj_menu_master</object>
     </objects>
     <objects name="Settings">
       <object>objects\obj_show_profiles</object>
-      <object>objects\obj_list_profile</object>
-      <object>objects\obj_settings_topic</object>
-      <object>objects\obj_settings_button</object>
+      <object>objects\obj_saved_profile</object>
     </objects>
     <objects name="List">
       <object>objects\obj_show_list</object>
@@ -130,7 +142,6 @@
     <object>objects\obj_rename</object>
     <object>objects\obj_get_input</object>
     <object>objects\obj_popup</object>
-    <object>objects\obj_popup_button</object>
     <object>objects\obj_number_button</object>
     <object>objects\obj_close_button</object>
     <object>objects\obj_page</object>

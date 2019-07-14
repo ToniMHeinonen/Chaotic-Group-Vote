@@ -144,11 +144,7 @@ if (!global.popup) then selected = false;
             <kind>1</kind>
             <string>///create selections
 if (!global.popup) {
-    global.sel_pos = position;
-    pro = instance_create(x,y,obj_popup);
-    pro.creator = "Profile";
-    scr_popup_values();
-    selected = true;
+    
 }
 </string>
           </argument>

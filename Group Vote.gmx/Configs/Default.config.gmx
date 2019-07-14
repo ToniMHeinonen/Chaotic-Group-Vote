@@ -678,11 +678,22 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="4">
+    <constants number="15">
       <constant name="LAYER_NORMAL">0</constant>
       <constant name="LAYER_BLOCK_TOPIC">1</constant>
       <constant name="LAYER_BLOCK_ITEM">2</constant>
       <constant name="LAYER_POPUP">3</constant>
+      <constant name="MENU">0</constant>
+      <constant name="SETTING_TOPIC">1</constant>
+      <constant name="SETTING_ITEM">2</constant>
+      <constant name="SAVED_PROFILE">3</constant>
+      <constant name="LIST_ITEM">4</constant>
+      <constant name="LISTMENU_TOPIC">5</constant>
+      <constant name="LISTMENU_ITEM">6</constant>
+      <constant name="SAVED_LIST">7</constant>
+      <constant name="POPUP">8</constant>
+      <constant name="NUMBER">9</constant>
+      <constant name="POPUP_CLOSE">10</constant>
     </constants>
   </ConfigConstants>
 </Config>

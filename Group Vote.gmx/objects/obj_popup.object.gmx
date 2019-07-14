@@ -149,29 +149,19 @@ if (ready) &amp;&amp; (!spawned) {
 if (creator == "Item"){
     if (ready) &amp;&amp; (!spawned) {
         if (global.peril) {
-            var pro = instance_create(b_xcenter,start_y,obj_popup_button);
-            pro.title = "Delete";
-            pro.creator = creator;
-            var pro = instance_create(b_xcenter,start_y+space*2,obj_popup_button);
-            pro.title = "Rename";
-            pro.creator = creator;
-            var pro = instance_create(b_xcenter,start_y+space*4,obj_popup_button);
-            pro.title = "Restore";
-            pro.creator = creator;
+            var titles = create_array("Delete", "Rename", "Restore");
+            var offset = space * 2;
+            for (var i = 0; i &lt; array_length_1d(titles); i++) {
+                scr_create_button(b_xcenter,start_y+offset*i, 
+                    POPUP, titles[i], creator);
+            }
             spawned = true;
         } else {
-            var pro = instance_create(b_xcenter,start_y,obj_popup_button);
-            pro.title = "Delete";
-            pro.creator = creator;
-            var pro = instance_create(b_xcenter,start_y+space,obj_popup_button);
-            pro.title = "Ignore";
-            pro.creator = creator;
-            var pro = instance_create(b_xcenter,start_y+space*2,obj_popup_button);
-            pro.title = "Rename";
-            pro.creator = creator;
-            var pro = instance_create(b_xcenter,start_y+space*3,obj_popup_button);
-            pro.title = "Drop";
-            pro.creator = creator;
+            var titles = create_array("Delete", "Ignore", "Rename", "Drop");
+            for (var i = 0; i &lt; array_length_1d(titles); i++) {
+                scr_create_button(b_xcenter,start_y+space*i, 
+                    POPUP, titles[i], creator);
+            }
             spawned = true;
         }
     }
@@ -199,12 +189,12 @@ if (creator == "Item"){
             <string>///Profile
 if (creator == "Profile"){
     if (ready) &amp;&amp; (!spawned) {
-        var pro = instance_create(b_xcenter,start_y,obj_popup_button);
-        pro.title = "Rename";
-        pro.creator = creator;
-        var pro = instance_create(b_xcenter,start_y+space*2,obj_popup_button);
-        pro.title = "Delete";
-        pro.creator = creator;
+        var titles = create_array("Rename", "Delete");
+        var offset = space * 2;
+        for (var i = 0; i &lt; array_length_1d(titles); i++) {
+            scr_create_button(b_xcenter,start_y+offset*i, 
+                POPUP, titles[i], creator);
+        }
         spawned = true;
     }
 }
@@ -231,15 +221,12 @@ if (creator == "Profile"){
             <string>///List
 if (creator == "List"){
     if (ready) &amp;&amp; (!spawned) {
-        var pro = instance_create(b_xcenter,start_y,obj_popup_button);
-        pro.title = "Load";
-        pro.creator = creator;
-        var pro = instance_create(b_xcenter,start_y+space*2,obj_popup_button);
-        pro.title = "Rename";
-        pro.creator = creator;
-        var pro = instance_create(b_xcenter,start_y+space*4,obj_popup_button);
-        pro.title = "Delete";
-        pro.creator = creator;
+        var titles = create_array("Load", "Rename", "Delete");
+        var offset = space * 2;
+        for (var i = 0; i &lt; array_length_1d(titles); i++) {
+            scr_create_button(b_xcenter,start_y+offset*i, 
+                POPUP, titles[i], creator);
+        }
         spawned = true;
     }
 }
@@ -268,12 +255,12 @@ if (creator == "Vote"){
     if (ready) &amp;&amp; (!spawned) {
         draw_warning = true;
         warning_text = "Are you sure you want to exit?";
-        var pro = instance_create(b_xcenter,start_y+space*2,obj_popup_button);
-        pro.title = "No";
-        pro.creator = creator;
-        var pro = instance_create(b_xcenter,start_y+space*4,obj_popup_button);
-        pro.title = "Yes";
-        pro.creator = creator;
+        var titles = create_array("No", "Yes");
+        var offset = space * 2;
+        for (var i = 0; i &lt; array_length_1d(titles); i++) {
+            scr_create_button(b_xcenter,start_y+offset + offset*i, 
+                POPUP, titles[i], creator);
+        }
         spawned = true;
     }
 }

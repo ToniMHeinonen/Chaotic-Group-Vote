@@ -168,15 +168,15 @@ if (creator == "Profile") {
             <string>///List
 if (creator == "List") {
     if (title == "Delete") {
-        instance_destroy(obj_popup_button);
+        scr_destroy_buttons(POPUP);
         obj_popup.draw_warning = true;
         obj_popup.warning_text = "Are you sure you want#to delete list " + global.sel_name + "?";
-        var pro = instance_create(x,obj_popup.start_y+obj_popup.space*2,obj_popup_button);
-        pro.title = "No";
-        pro.creator = creator;
-        var pro = instance_create(x,obj_popup.start_y+obj_popup.space*4,obj_popup_button);
-        pro.title = "Yes";
-        pro.creator = creator;
+        var titles = create_array("No", "Yes");
+        var offset = obj_popup.space * 2;
+        for (var i = 0; i &lt; array_length_1d(titles); i++) {
+            scr_create_button(x,obj_popup.start_y+offset + offset*i, 
+                POPUP, titles[i], creator);
+        }
         draw_warning = true;
     }
     if (title == "Load") {

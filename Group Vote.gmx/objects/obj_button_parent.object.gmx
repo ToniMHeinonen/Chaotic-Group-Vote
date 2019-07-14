@@ -33,10 +33,12 @@ creator = noone;
 scrollable = false;
 title = "";
 name = "";
+drawName = false;
 font = fnt_menu;
 hAlign = fa_center;
 layer = LAYER_NORMAL;
 image_index = global.night_mode;
+script = noone;
 </string>
           </argument>
         </arguments>
@@ -67,6 +69,50 @@ if (enablePopup)
     global.popup = true;
     
 scr_select_this(id, layer);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Execute clicked operations
+script_execute(script);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// After clicked
+scr_after_clicked();
 </string>
           </argument>
         </arguments>
@@ -145,24 +191,32 @@ scr_layer_control_pressed();
           <argument>
             <kind>1</kind>
             <string>///Draw Box and title
+// Don't blend out of night mode, since whole button is white
+var night = global.night_mode;
 draw_self();
 draw_set_color(global.text_color);
-image_blend = global.text_color;
+if (night)
+    image_blend = global.text_color;
 
 // Change text color
 if (selected) { 
     draw_set_color(global.selected_color);
-    image_blend = global.selected_color;
+    if (night)
+        image_blend = global.selected_color;
 }
 else if (mouseOver) {
     draw_set_color(global.mouseOver_color);
-    image_blend = global.mouseOver_color;
+    if (night)
+        image_blend = global.mouseOver_color;
 }
 
 draw_set_font(font);
 draw_set_halign(hAlign);
 draw_set_valign(fa_middle);
-draw_text(x,y,title);
+if (drawName)
+    draw_text(x,y,name);
+else 
+    draw_text(x,y,title);
 </string>
           </argument>
         </arguments>

@@ -28,12 +28,6 @@
             <string>///Init
 event_inherited();
 init_necessary_button_values(LAYER_NORMAL, false, fnt_menu, fa_center);
-
-draw_warning = false;
-
-scr_load_profiles();
-scr_load_items();
-scr_skip_ignored_items();
 </string>
           </argument>
         </arguments>
@@ -263,7 +257,7 @@ scr_after_clicked();
             <string>///Draw warning
 event_inherited();
 
-if (draw_warning) then draw_text(room_width/2,50, warning_text)
+
 </string>
           </argument>
         </arguments>
