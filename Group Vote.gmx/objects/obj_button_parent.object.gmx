@@ -91,6 +91,13 @@ scr_select_this(id, layer);
             <kind>1</kind>
             <string>/// Control layer mouse over and selected
 scr_layer_control();
+
+mouseOver = scr_mouseover_color();
+
+if (scrollable)
+    scr_scroll_control();
+    
+selected = scr_check_if_selected(id, layer);
 </string>
           </argument>
         </arguments>
@@ -138,12 +145,19 @@ scr_layer_control_pressed();
           <argument>
             <kind>1</kind>
             <string>///Draw Box and title
-draw_sprite(sprite_index, global.night_mode, x, y);
+draw_self();
 draw_set_color(global.text_color);
+image_blend = global.text_color;
 
 // Change text color
-if (scr_check_if_selected(id, layer)) draw_set_color(global.selected_color);
-else if (mouseOver) draw_set_color(global.mouseOver_color);
+if (selected) { 
+    draw_set_color(global.selected_color);
+    image_blend = global.selected_color;
+}
+else if (mouseOver) {
+    draw_set_color(global.mouseOver_color);
+    image_blend = global.mouseOver_color;
+}
 
 draw_set_font(font);
 draw_set_halign(hAlign);

@@ -27,15 +27,14 @@
             <kind>1</kind>
             <string>///Init
 event_inherited();
-font = fnt_small;
-creator = noone;
+init_necessary_button_values(LAYER_NORMAL, false, fnt_small, fa_center);
 value = 0;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -52,14 +51,12 @@ value = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Mouse over
+            <string>/// Inherit from parent
 event_inherited();
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -77,14 +74,12 @@ event_inherited();
           <argument>
             <kind>1</kind>
             <string>///Item
-if (!global.popup) &amp;&amp; (!global.block) {
-    if (creator == "Item") {
-        if (title == "+") {
-            value += 1;
-        }
-        if (title == "-") {
-            value -= 1;
-        }
+if (creator == "Item") {
+    if (title == "+") {
+        value += 1;
+    }
+    if (title == "-") {
+        value -= 1;
     }
 }
 </string>
@@ -121,6 +116,28 @@ if (creator == "Vote") {
         }
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// After clicked
+scr_after_clicked();
 </string>
           </argument>
         </arguments>

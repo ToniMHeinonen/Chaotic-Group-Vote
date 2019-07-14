@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Init
 event_inherited();
-font = fnt_menu;
+init_necessary_button_values(LAYER_BLOCK_TOPIC, false, fnt_menu, fa_center);
 draw_warning = false;
 </string>
           </argument>
@@ -51,31 +51,7 @@ draw_warning = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///disable draw warning
-draw_warning = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Mouse over
+            <string>/// Inherit from parent
 event_inherited();
 </string>
           </argument>
@@ -97,36 +73,8 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Don't draw box if block off and selection
-if (!global.block) {
-    selected = false;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Apply selected
-if (!global.popup) &amp;&amp; (!global.block) {
-    selected = true;
-}
+            <string>///disable draw warning
+draw_warning = false;
 </string>
           </argument>
         </arguments>
@@ -149,27 +97,21 @@ if (!global.popup) &amp;&amp; (!global.block) {
             <kind>1</kind>
             <string>///Add
 if (title == "Add") {
-    if (!global.popup) &amp;&amp; (!global.block) {
-        if (global.list_slot == "") { 
-            draw_warning = true;
-            alarm[0] = 120;
-        } else {
-            global.block = true;
-            draw_box = true;
-            var pro = instance_create(x,y+32,obj_listmenu_button);
-            pro.title = "Add one";
-            pro.creator = "Add";
-            var pro = instance_create(x,y+64,obj_listmenu_button);
-            pro.title = "Add many";
-            pro.creator = "Add";
-            var pro = instance_create(x,y+96,obj_listmenu_button);
-            if (global.full_add) then toggle_full_add = "On";
-            else toggle_full_add = "Off";
-            pro.title = "Add all values: " + toggle_full_add;
-            pro.creator = "Add";
-        }
+    if (global.list_slot == "") { 
+        draw_warning = true;
+        alarm[0] = 120;
     } else {
-        global.block = false;
+        var pro = instance_create(x,y+32,obj_listmenu_button);
+        pro.title = "Add one";
+        pro.creator = "Add";
+        var pro = instance_create(x,y+64,obj_listmenu_button);
+        pro.title = "Add many";
+        pro.creator = "Add";
+        var pro = instance_create(x,y+96,obj_listmenu_button);
+        if (global.full_add) then toggle_full_add = "On";
+        else toggle_full_add = "Off";
+        pro.title = "Add all values: " + toggle_full_add;
+        pro.creator = "Add";
     }
 }
 </string>
@@ -194,28 +136,22 @@ if (title == "Add") {
             <kind>1</kind>
             <string>///File
 if (title == "File") {
-    if (!global.popup) &amp;&amp; (!global.block) {
-        draw_box = true;
-        global.block = true;
-        var space = 32;
-        scr_load_lists();
-        
-        var pro = instance_create(x,y+32,obj_listmenu_button);
-        pro.title = "New list";
-        pro.creator = "File";
-        pro.scroll = true;
-        
-        for(var i = 0; i&lt;ds_list_size(lists); i++) {
-            item = instance_create(x,y+64+space*i,obj_list_list);
-            item.title = lists[| i];
-            item.position = i;
-        }
-        
-        scr_save_lists();
-        ds_list_destroy(lists);
-    } else {
-        global.block = false;
+    var space = 32;
+    scr_load_lists();
+    
+    var pro = instance_create(x,y+32,obj_listmenu_button);
+    pro.title = "New list";
+    pro.creator = "File";
+    pro.scroll = true;
+    
+    for(var i = 0; i&lt;ds_list_size(lists); i++) {
+        item = instance_create(x,y+64+space*i,obj_saved_list);
+        item.title = lists[| i];
+        item.position = i;
     }
+    
+    scr_save_lists();
+    ds_list_destroy(lists);
 }
 </string>
           </argument>
@@ -239,9 +175,7 @@ if (title == "File") {
             <kind>1</kind>
             <string>///Save
 if (title = "Save") {
-    if (!global.popup) &amp;&amp; (!global.block) {
-        instance_destroy(obj_show_list);
-    }
+    instance_destroy(obj_show_list);
 }
 </string>
           </argument>
@@ -265,20 +199,14 @@ if (title = "Save") {
             <kind>1</kind>
             <string>///Sort
 if (title == "Sort") {
-    if (!global.popup) &amp;&amp; (!global.block) {
-        global.block = true;
-        draw_box = true;
-        var pro = instance_create(x,y+32,obj_listmenu_button);
-        pro.title = "Sort by: " + global.sort_by;
-        pro.creator = "Sort";
-        var pro = instance_create(x,y+64,obj_listmenu_button);
-        if (global.sort_asc == -1) then toggle_sort_asc = "Descending";
-        else toggle_sort_asc = "Ascending";
-        pro.title = toggle_sort_asc;
-        pro.creator = "Sort";
-    } else {
-        global.block = false;
-    }
+    var pro = instance_create(x,y+32,obj_listmenu_button);
+    pro.title = "Sort by: " + global.sort_by;
+    pro.creator = "Sort";
+    var pro = instance_create(x,y+64,obj_listmenu_button);
+    if (global.sort_asc == -1) then toggle_sort_asc = "Descending";
+    else toggle_sort_asc = "Ascending";
+    pro.title = toggle_sort_asc;
+    pro.creator = "Sort";
 }
 </string>
           </argument>
@@ -302,12 +230,8 @@ if (title == "Sort") {
             <kind>1</kind>
             <string>///Exit
 if (title == "Exit") {
-    if (!global.popup) &amp;&amp; (!global.block) {
-        scr_save_settings();
-        scr_change_room(rm_menu);
-    } else {
-        global.block = false;
-    }
+    scr_save_settings();
+    scr_change_room(rm_menu);
 }
 </string>
           </argument>
@@ -331,12 +255,32 @@ if (title == "Exit") {
             <kind>1</kind>
             <string>///Fallen
 if (title == "Fallen") {
-    if (!global.popup) &amp;&amp; (!global.block) {
-        global.peril = !global.peril
-        global.update = false;
-        instance_destroy(obj_show_list);
-    }
+    global.peril = !global.peril
+    global.update = false;
+    instance_destroy(obj_show_list);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// After clicked
+scr_after_clicked();
 </string>
           </argument>
         </arguments>

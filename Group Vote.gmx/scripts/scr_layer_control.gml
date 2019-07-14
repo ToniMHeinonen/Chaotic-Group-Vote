@@ -31,8 +31,6 @@ switch (layer) {
         break;
     }
 }
-
-mouseOver = scr_mouseover_color();
     
 if (disableSelected)
     selected = false;

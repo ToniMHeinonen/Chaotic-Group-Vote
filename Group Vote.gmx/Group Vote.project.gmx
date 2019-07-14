@@ -109,22 +109,28 @@
       <object>objects\obj_show_vote_results</object>
       <object>objects\obj_results_item</object>
     </objects>
+    <objects name="Menu">
+      <object>objects\obj_menu_button</object>
+    </objects>
+    <objects name="Settings">
+      <object>objects\obj_show_profiles</object>
+      <object>objects\obj_list_profile</object>
+      <object>objects\obj_settings_topic</object>
+      <object>objects\obj_settings_button</object>
+    </objects>
+    <objects name="List">
+      <object>objects\obj_show_list</object>
+      <object>objects\obj_list_item</object>
+      <object>objects\obj_saved_list</object>
+      <object>objects\obj_listmenu_topic</object>
+      <object>objects\obj_listmenu_button</object>
+    </objects>
     <object>objects\obj_button_parent</object>
     <object>objects\obj_spawner</object>
-    <object>objects\obj_menu_button</object>
-    <object>objects\obj_show_list</object>
-    <object>objects\obj_list_item</object>
     <object>objects\obj_rename</object>
-    <object>objects\obj_list_list</object>
-    <object>objects\obj_show_profiles</object>
-    <object>objects\obj_list_profile</object>
     <object>objects\obj_get_input</object>
     <object>objects\obj_popup</object>
     <object>objects\obj_popup_button</object>
-    <object>objects\obj_listmenu_topic</object>
-    <object>objects\obj_listmenu_button</object>
-    <object>objects\obj_settings_topic</object>
-    <object>objects\obj_settings_button</object>
     <object>objects\obj_number_button</object>
     <object>objects\obj_close_button</object>
     <object>objects\obj_page</object>

@@ -27,14 +27,14 @@
             <kind>1</kind>
             <string>/// Init
 event_inherited();
-font = fnt_small;
+init_necessary_button_values(LAYER_BLOCK_ITEM, true, fnt_small, fa_center);
 position = 0;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -51,29 +51,7 @@ position = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Destroy if block off
-if (!global.block) then instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Mouse over
+            <string>/// Inherit from parent
 event_inherited();
 </string>
           </argument>
@@ -95,61 +73,34 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Scroll control
-scr_scroll_control();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Selected off if popup off
-if (!global.popup) then selected = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///create selections
-if (!global.popup) {
-    global.sel_pos = position;
-    global.sel_name = title;
-    pro = instance_create(x,y,obj_popup);
-    pro.creator = "List";
-    scr_popup_values();
-    selected = true;
-}
+global.sel_pos = position;
+global.sel_name = title;
+pro = instance_create(x,y,obj_popup);
+pro.creator = "List";
+scr_popup_values();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// After clicked
+scr_after_clicked();
 </string>
           </argument>
         </arguments>
