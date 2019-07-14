@@ -38,6 +38,7 @@ start_y = b_top+64;
 text_y = b_top+50
 space = 35;
 
+global.popup = true;
 bgc = c_black;
 bgx = 0;
 bgy = 0;

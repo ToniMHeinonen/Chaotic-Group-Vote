@@ -29,7 +29,6 @@
 event_inherited();
 font = fnt_menu;
 draw_warning = false;
-draw_box = false;
 </string>
           </argument>
         </arguments>
@@ -100,7 +99,6 @@ event_inherited();
             <kind>1</kind>
             <string>///Don't draw box if block off and selection
 if (!global.block) {
-    draw_box = false;
     selected = false;
 }
 </string>
@@ -306,7 +304,7 @@ if (title == "Sort") {
 if (title == "Exit") {
     if (!global.popup) &amp;&amp; (!global.block) {
         scr_save_settings();
-        room_goto(rm_menu);
+        scr_change_room(rm_menu);
     } else {
         global.block = false;
     }
@@ -364,7 +362,7 @@ if (title == "Fallen") {
             <string>///Draw warning and box
 event_inherited();
 if (title == "Fallen") {
-    if (global.peril) then draw_set_color(global.selection_color);
+    if (global.peril) then draw_set_color(global.selected_color);
     draw_text(x,y,title);
 }
 

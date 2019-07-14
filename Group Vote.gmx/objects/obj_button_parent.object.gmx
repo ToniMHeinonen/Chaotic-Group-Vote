@@ -27,13 +27,46 @@
             <kind>1</kind>
             <string>/// Variables
 image_speed = 0;
-image_index = global.night_mode;
 mouseOver = false;
 selected = false;
+creator = noone;
+scrollable = false;
 title = "";
 name = "";
-font = noone;
+font = fnt_menu;
 hAlign = fa_center;
+layer = LAYER_NORMAL;
+image_index = global.night_mode;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Enable block and popup if necessary, also enable selected
+if (enableBlock)
+    global.block = true;
+    
+if (enablePopup)
+    global.popup = true;
+    
+scr_select_this(id, layer);
 </string>
           </argument>
         </arguments>
@@ -56,8 +89,32 @@ hAlign = fa_center;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Mouseover
-mouseOver = scr_mouseover_color();
+            <string>/// Control layer mouse over and selected
+scr_layer_control();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Parent layer control
+scr_layer_control_pressed();
 </string>
           </argument>
         </arguments>
@@ -83,8 +140,11 @@ mouseOver = scr_mouseover_color();
             <string>///Draw Box and title
 draw_sprite(sprite_index, global.night_mode, x, y);
 draw_set_color(global.text_color);
-if (mouseOver or selected)
-    draw_set_color(global.selection_color);
+
+// Change text color
+if (scr_check_if_selected(id, layer)) draw_set_color(global.selected_color);
+else if (mouseOver) draw_set_color(global.mouseOver_color);
+
 draw_set_font(font);
 draw_set_halign(hAlign);
 draw_set_valign(fa_middle);

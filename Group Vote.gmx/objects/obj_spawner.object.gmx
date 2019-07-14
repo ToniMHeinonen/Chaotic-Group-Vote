@@ -31,24 +31,25 @@ middley = room_height/2;
 start = 150;
 space = 150;
 
+menuTitles[0] = "Vote";
+menuTitles[1] = "Show list";
+menuTitles[2] = "Settings";
+menuTitles[3] = "Exit";
+
 if (room == rm_menu) {
-    var pro = instance_create(middlex,start,obj_menu_button);
-    pro.title = "Vote";
-    var pro = instance_create(middlex,start+space,obj_menu_button);
-    pro.title = "Show list";
-    var pro = instance_create(middlex,start+space*2,obj_menu_button);
-    pro.title = "Settings";
-    var pro = instance_create(middlex,start+space*3,obj_menu_button);
-    pro.title = "Exit";
+    for (var i = 0; i &lt; array_length_1d(menuTitles); i++) {
+        scr_create_button(obj_menu_button, middlex, start+space*i, menuTitles[i]);
+    }
 }
 
+setTitles[0] = "Profile";
+setTitles[1] = "Display";
+setTitles[2] = "Exit";
+
 if (room == rm_settings) {
-    var pro = instance_create(middlex,start,obj_settings_topic);
-    pro.title = "Profile";
-    var pro = instance_create(middlex,start+space,obj_settings_topic);
-    pro.title = "Display";
-    var pro = instance_create(middlex,start+space*2,obj_settings_topic);
-    pro.title = "Exit";
+    for (var i = 0; i &lt; array_length_1d(setTitles); i++) {
+        scr_create_button(obj_settings_topic, middlex, start+space*i, setTitles[i]);
+    }
 }
 </string>
           </argument>

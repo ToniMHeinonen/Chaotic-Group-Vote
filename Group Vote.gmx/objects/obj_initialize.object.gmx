@@ -36,6 +36,12 @@ global.scrolling = false;
 global.page = 0;
 global.popup_sprite = spr_popup_big;
 audio_play_sound(snd_thomas,1,true);
+
+// Selection
+global.selectedNormal = noone;
+global.selectedBlock = noone;
+global.selectedItem = noone;
+global.selectedPopup = noone;
 </string>
           </argument>
         </arguments>

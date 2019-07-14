@@ -677,5 +677,12 @@
     <option_xbone_texture_page>1024</option_xbone_texture_page>
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
-  <ConfigConstants/>
+  <ConfigConstants>
+    <constants number="4">
+      <constant name="LAYER_NORMAL">0</constant>
+      <constant name="LAYER_BLOCK_TOPIC">1</constant>
+      <constant name="LAYER_BLOCK_ITEM">2</constant>
+      <constant name="LAYER_POPUP">3</constant>
+    </constants>
+  </ConfigConstants>
 </Config>

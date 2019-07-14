@@ -15,7 +15,6 @@
     <sprite>sprites\spr_small_plus_minus</sprite>
     <sprite>sprites\spr_close</sprite>
     <sprite>sprites\spr_listmenu</sprite>
-    <sprite>sprites\spr_wide_listmenu_borders</sprite>
     <sprite>sprites\spr_wide_listmenu</sprite>
     <sprite>sprites\spr_popup</sprite>
     <sprite>sprites\spr_popup_big</sprite>
@@ -75,6 +74,14 @@
       <script>scripts\scr_sort_by_bonus.gml</script>
       <script>scripts\scr_sort_items.gml</script>
     </scripts>
+    <script>scripts\scr_create_button.gml</script>
+    <script>scripts\scr_layer_control.gml</script>
+    <script>scripts\scr_layer_control_pressed.gml</script>
+    <script>scripts\init_necessary_button_values.gml</script>
+    <script>scripts\scr_change_room.gml</script>
+    <script>scripts\scr_select_this.gml</script>
+    <script>scripts\scr_check_if_selected.gml</script>
+    <script>scripts\scr_after_clicked.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_menu</font>

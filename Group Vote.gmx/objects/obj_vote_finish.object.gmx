@@ -129,7 +129,8 @@ scr_save_items();
 scr_load_peril_items();
 scr_add_peril_items();
 scr_save_peril_items();
-room_goto(rm_menu);
+
+scr_change_room(rm_menu);
 </string>
           </argument>
         </arguments>

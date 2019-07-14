@@ -44,6 +44,7 @@ fade = 0;
 ready = false;
 add_one = true;
 
+global.popup = true;
 values = 0;
 margin = 64;
 text = "Enter name";

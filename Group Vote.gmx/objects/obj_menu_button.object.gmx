@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>///Init
 event_inherited();
-font = fnt_menu;
+init_necessary_button_values(LAYER_NORMAL, false, fnt_menu, fa_center);
+
 draw_warning = false;
 
 scr_load_profiles();
@@ -80,14 +81,34 @@ scr_destroy_items();
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Inherit from parent
+event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Disable draw warning
 draw_warning = false;
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -119,7 +140,7 @@ if (title == "Vote") {
         warning_text = "Add more items to list#(At least " + string(global.max_points_round_1) + " required!)";
         alarm[0] = 120;
     } else {
-        room_goto(rm_vote);
+        scr_change_room(rm_vote);
     }
 }
 </string>
@@ -144,7 +165,7 @@ if (title == "Vote") {
             <kind>1</kind>
             <string>///Show list
 if (title == "Show list") {
-    room_goto(rm_show_list);
+    scr_change_room(rm_show_list);
 }
 </string>
           </argument>
@@ -168,7 +189,7 @@ if (title == "Show list") {
             <kind>1</kind>
             <string>///Settings
 if (title == "Settings") {
-    room_goto(rm_settings);
+    scr_change_room(rm_settings);
 }
 </string>
           </argument>
@@ -195,6 +216,28 @@ if (title == "Exit") {
     scr_save_settings();
     game_end()
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// After clicked
+scr_after_clicked();
 </string>
           </argument>
         </arguments>

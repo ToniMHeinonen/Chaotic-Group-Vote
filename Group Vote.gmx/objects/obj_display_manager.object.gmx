@@ -179,6 +179,37 @@ else window_set_fullscreen(false);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Check for mouse click out of object for selection
+if (mouse_check_button_pressed(mb_left)) {
+    if (!instance_position(mouse_x, mouse_y, obj_button_parent)) {
+        global.block = false;
+        global.popup = false;
+        global.selectedNormal = noone;
+        global.selectedBlock = noone;
+        global.selectedItem = noone;
+        global.selectedPopup = noone;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>

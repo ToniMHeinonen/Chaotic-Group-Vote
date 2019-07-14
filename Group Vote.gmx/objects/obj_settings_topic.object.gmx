@@ -27,20 +27,20 @@
             <kind>1</kind>
             <string>///Init
 event_inherited();
-font = fnt_menu;
+init_necessary_button_values(LAYER_BLOCK_TOPIC, false, fnt_menu, fa_center);
+
 space = 32;
 
 x1 = x+150;
 x2 = x+350;
 y1 = y-200;
 y2 = y+200;
-draw = false;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -57,59 +57,8 @@ draw = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Mouse over
-if (!global.popup) then event_inherited();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw and selected off if global block off
-if (!global.block) {
-    draw = false;
-    selected = false;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Selected on
-if (!global.popup) &amp;&amp; (!global.block) {
-    selected = true;
-}
+            <string>/// Inherit from parent
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -131,19 +80,11 @@ if (!global.popup) &amp;&amp; (!global.block) {
           <argument>
             <kind>1</kind>
             <string>///Profile
-if (!global.popup) {
-    if (title == "Profile") {
-        if (!global.block)  {
-            global.block = true;
-            draw = true;
-            global.profilex = x1+100;
-            global.profiley = y-150;
-            if (global.profiley &lt; 50) then global.profiley = 50;
-            instance_create(0,0,obj_show_profiles);
-        } else {
-            global.block = false;
-        }
-    }
+if (title == "Profile") {
+    global.profilex = x1+100;
+    global.profiley = y-150;
+    if (global.profiley &lt; 50) then global.profiley = 50;
+    instance_create(0,0,obj_show_profiles);
 }
 </string>
           </argument>
@@ -166,24 +107,16 @@ if (!global.popup) {
           <argument>
             <kind>1</kind>
             <string>///Display
-if (!global.popup) {
-    if (title == "Display") {
-        if (!global.block)  {
-            global.block = true;
-            draw = true;
-            block_x = x1+100;
-            block_y = y-150;
-            if (block_y &lt; 50) then block_y = 50;
-            var pro = instance_create(block_x,block_y,obj_settings_button);
-            pro.title = "Fullscreen";
-            pro.creator = "Display";
-            var pro = instance_create(block_x,block_y+space,obj_settings_button);
-            pro.title = "Night mode";
-            pro.creator = "Display";
-        } else {
-            global.block = false;
-        }
-    }
+if (title == "Display") {
+    block_x = x1+100;
+    block_y = y-150;
+    if (block_y &lt; 50) then block_y = 50;
+    var pro = instance_create(block_x,block_y,obj_settings_button);
+    pro.title = "Fullscreen";
+    pro.creator = "Display";
+    var pro = instance_create(block_x,block_y+space,obj_settings_button);
+    pro.title = "Night mode";
+    pro.creator = "Display";
 }
 </string>
           </argument>
@@ -206,16 +139,32 @@ if (!global.popup) {
           <argument>
             <kind>1</kind>
             <string>///Exit
-if (!global.popup) {
-    if (title == "Exit") {
-        if (!global.block) {
-            scr_save_settings();
-            room_goto(rm_menu);
-        } else {
-            global.block = false;
-        }
-    }
+if (title == "Exit") {
+    scr_save_settings();
+    scr_change_room(rm_menu);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// After clicked
+scr_after_clicked();
 </string>
           </argument>
         </arguments>

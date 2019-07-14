@@ -263,8 +263,7 @@ if (creator == "Vote") {
         global.popup = false;
     }
     if (title == "Yes") {
-        global.popup = false;
-        room_goto(rm_menu);
+        scr_change_room(rm_menu);
     }
 }
 </string>
