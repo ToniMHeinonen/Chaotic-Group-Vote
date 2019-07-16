@@ -123,7 +123,7 @@ if (creator == "delete"){
             <kind>1</kind>
             <string>///Universal close button (keep on second because of spawned variable)
 if (ready) &amp;&amp; (!spawned) {
-    instance_create(b_right-24,b_top+23,obj_close_button);
+    scr_create_button(b_right-24,b_top+23, POPUP_CLOSE, "");
 }
 </string>
           </argument>
@@ -192,6 +192,7 @@ if (creator == "Profile"){
         var titles = create_array("Rename", "Delete");
         var offset = space * 2;
         for (var i = 0; i &lt; array_length_1d(titles); i++) {
+            show_debug_message("spawned");
             scr_create_button(b_xcenter,start_y+offset*i, 
                 POPUP, titles[i], creator);
         }

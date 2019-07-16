@@ -78,6 +78,7 @@
     </scripts>
     <script>scripts\scr_create_button.gml</script>
     <script>scripts\scr_destroy_buttons.gml</script>
+    <script>scripts\scr_check_if_lowest_depth.gml</script>
     <script>scripts\scr_layer_control.gml</script>
     <script>scripts\scr_layer_control_pressed.gml</script>
     <script>scripts\init_necessary_button_values.gml</script>
@@ -92,9 +93,12 @@
       <script>scripts\scr_clicked_setting_item.gml</script>
       <script>scripts\scr_clicked_saved_profile.gml</script>
       <script>scripts\scr_clicked_popup.gml</script>
+      <script>scripts\scr_clicked_popup_close.gml</script>
+      <script>scripts\scr_clicked_number.gml</script>
     </scripts>
     <scripts name="Helper">
       <script>scripts\create_array.gml</script>
+      <script>scripts\scr_find_all_clicked_buttons.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -128,7 +132,6 @@
     </objects>
     <objects name="Settings">
       <object>objects\obj_show_profiles</object>
-      <object>objects\obj_saved_profile</object>
     </objects>
     <objects name="List">
       <object>objects\obj_show_list</object>
@@ -143,8 +146,6 @@
     <object>objects\obj_get_input</object>
     <object>objects\obj_popup</object>
     <object>objects\obj_number_button</object>
-    <object>objects\obj_close_button</object>
-    <object>objects\obj_page</object>
     <object>objects\obj_scrollable_text</object>
   </objects>
   <rooms name="rooms">

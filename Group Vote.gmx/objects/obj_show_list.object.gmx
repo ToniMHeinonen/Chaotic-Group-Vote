@@ -39,10 +39,6 @@ if (global.restart) {
     pro.title = "Sort";
     var pro = instance_create(room_width-100,30,obj_listmenu_topic);
     pro.title = "Exit";
-    var pro = instance_create(800,100,obj_page);
-    pro.title = "Left";
-    var pro = instance_create(900,100,obj_page);
-    pro.title = "Right";
 }
 global.restart = true;
 global.update = true;
@@ -185,7 +181,7 @@ if (global.restart) {
     instance_create(x,y,obj_display_manager);
 } else {
     instance_destroy(obj_list_item);
-    instance_destroy(obj_number_button);
+    scr_destroy_buttons(NUMBER);
 }
 //Restore item back from fallen list
 if (global.restore) {

@@ -73,12 +73,12 @@ global.vote_prev_y = 50;
 scr_reset_vote_points();
 
 //Create start buttons
-var pro = instance_create(b_xcenter+30,b_ycenter,obj_number_button);
-pro.title = "+";
-pro.creator = "Vote";
-var pro = instance_create(b_xcenter-30,b_ycenter,obj_number_button);
-pro.title = "-";
-pro.creator = "Vote";
+var buttons = create_array("+", "-");
+var offset = create_array(30, -30);
+for (var i = 0; i &lt; array_length_1d(buttons); i++) {
+    scr_create_button(b_xcenter + offset[i], b_ycenter, NUMBER, buttons[i], "Vote");
+}
+
 instance_create(global.vote_next_x,global.vote_next_y,obj_vote_next_step);
 
 //Create exit button
@@ -226,7 +226,7 @@ if (state == "start") {
                 next_step = false;
                 global.vote_points = global.max_points_round_1;
                 global.max_vote_points = global.vote_points;
-                instance_destroy(obj_number_button);
+                scr_destroy_buttons(NUMBER);
                 instance_create(0,0,obj_show_vote_profiles);
                 }
             //}

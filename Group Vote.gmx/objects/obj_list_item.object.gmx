@@ -47,22 +47,15 @@ extra_x = x+400;
 whole_x = x+500;
 scroll_x = 0;
 
+
 //Create + and - control
-add_bonus = instance_create(bonus_x+30,y,obj_number_button);
-add_bonus.title = "+";
-add_bonus.creator = "Item";
+add_bonus = scr_create_button(bonus_x+30,y, NUMBER, "+", "Item");
 add_bonus.start_x = add_bonus.x;
-dec_bonus = instance_create(bonus_x-30,y,obj_number_button);
-dec_bonus.title = "-";
-dec_bonus.creator = "Item";
-dec_bonus.start_x  = dec_bonus.x;
-add_extra = instance_create(extra_x+30,y,obj_number_button);
-add_extra.title = "+";
-add_extra.creator = "Item";
+dec_bonus = scr_create_button(bonus_x-30,y, NUMBER, "-", "Item");
+dec_bonus.start_x = dec_bonus.x;
+add_extra = scr_create_button(extra_x+30,y, NUMBER, "+", "Item");
 add_extra.start_x = add_extra.x;
-dec_extra = instance_create(extra_x-30,y,obj_number_button);
-dec_extra.title = "-";
-dec_extra.creator = "Item";
+dec_extra = scr_create_button(extra_x-30,y, NUMBER, "-", "Item");
 dec_extra.start_x = dec_extra.x;
 </string>
           </argument>

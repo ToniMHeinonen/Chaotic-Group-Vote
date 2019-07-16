@@ -4,6 +4,10 @@
 if (scr_check_if_selected(id,layer))
     exit;
 
+// Check if this clicked object has the lowest depth
+if (!scr_check_if_lowest_depth(id)) {
+    exit;
+}
 
 var blockOn = global.block;
 var popupOn = global.popup;

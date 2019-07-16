@@ -51,6 +51,30 @@ switch (type) {
         scrollable = false;
         hAlign = fa_center;
         script = scr_clicked_popup;
+        // Specific
+        depth = -101;
+        break;
+    }
+    case POPUP_CLOSE: {
+        sprite_index = spr_close;
+        layer = LAYER_POPUP;
+        font = fnt_menu;
+        scrollable = false;
+        hAlign = fa_center;
+        script = scr_clicked_popup_close;
+        // Specific
+        depth = -101;
+        break;
+    }
+    case NUMBER: {
+        sprite_index = spr_small_plus_minus;
+        layer = LAYER_NORMAL;
+        font = fnt_small;
+        scrollable = false;
+        hAlign = fa_center;
+        script = scr_clicked_number;
+        // Specific
+        value = 0;
         break;
     }
 }
