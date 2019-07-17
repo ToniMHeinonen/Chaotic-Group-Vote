@@ -309,9 +309,6 @@ if (title == "Fallen") {
     if (global.peril) then draw_set_color(global.selected_color);
     draw_text(x,y,title);
 }
-
-if (draw_warning) then draw_text(room_width/2,room_height/2,
-"First select or create#a list from File tab!")
 </string>
           </argument>
         </arguments>

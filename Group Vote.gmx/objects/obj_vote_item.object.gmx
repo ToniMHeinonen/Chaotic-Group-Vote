@@ -33,7 +33,6 @@ bonus = 0;
 extra = 0;
 whole = 0;
 position = 0;
-alarm[0] = 1;
 </string>
           </argument>
         </arguments>

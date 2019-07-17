@@ -95,6 +95,10 @@
       <script>scripts\scr_clicked_popup.gml</script>
       <script>scripts\scr_clicked_popup_close.gml</script>
       <script>scripts\scr_clicked_number.gml</script>
+      <script>scripts\scr_clicked_listmenu_topic.gml</script>
+      <script>scripts\scr_clicked_listmenu_item.gml</script>
+      <script>scripts\scr_clicked_saved_list.gml</script>
+      <script>scripts\scr_clicked_list_item.gml</script>
     </scripts>
     <scripts name="Helper">
       <script>scripts\create_array.gml</script>
@@ -136,16 +140,12 @@
     <objects name="List">
       <object>objects\obj_show_list</object>
       <object>objects\obj_list_item</object>
-      <object>objects\obj_saved_list</object>
-      <object>objects\obj_listmenu_topic</object>
-      <object>objects\obj_listmenu_button</object>
     </objects>
     <object>objects\obj_button_parent</object>
     <object>objects\obj_spawner</object>
     <object>objects\obj_rename</object>
     <object>objects\obj_get_input</object>
     <object>objects\obj_popup</object>
-    <object>objects\obj_number_button</object>
     <object>objects\obj_scrollable_text</object>
   </objects>
   <rooms name="rooms">

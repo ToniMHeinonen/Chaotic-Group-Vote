@@ -77,4 +77,47 @@ switch (type) {
         value = 0;
         break;
     }
+    case LISTMENU_TOPIC: {
+        sprite_index = spr_listmenu;
+        layer = LAYER_BLOCK_TOPIC;
+        font = fnt_menu;
+        scrollable = false;
+        hAlign = fa_center;
+        script = scr_clicked_listmenu_topic;
+        // Specific
+        depth = -50;
+        break;
+    }
+    case LISTMENU_ITEM: {
+        sprite_index = spr_wide_listmenu;
+        layer = LAYER_BLOCK_ITEM;
+        font = fnt_small;
+        scrollable = false;
+        hAlign = fa_center;
+        script = scr_clicked_listmenu_item;
+        // Specific
+        depth = -55;
+        break;
+    }
+    case SAVED_LIST: {
+        sprite_index = spr_wide_listmenu;
+        layer = LAYER_BLOCK_ITEM;
+        font = fnt_small;
+        scrollable = true;
+        hAlign = fa_center;
+        script = scr_clicked_saved_list;
+        // Specific
+        depth = -55;
+        position = 0;
+        break;
+    }
+    case LIST_ITEM: {
+        sprite_index = spr_list_item;
+        layer = LAYER_NORMAL;
+        font = fnt_small;
+        scrollable = false;
+        hAlign = fa_left;
+        script = scr_clicked_list_item;
+        break;
+    }
 }

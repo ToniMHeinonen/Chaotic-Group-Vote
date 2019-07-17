@@ -29,16 +29,14 @@
 if (global.restart) {
     global.popup = false;
     global.block = false;
-    var pro = instance_create(100,30,obj_listmenu_topic);
-    pro.title = "Add";
-    var pro = instance_create(250,30,obj_listmenu_topic);
-    pro.title = "Save";
-    var pro = instance_create(400,30,obj_listmenu_topic);
-    pro.title = "File";
-    var pro = instance_create(550,30,obj_listmenu_topic);
-    pro.title = "Sort";
-    var pro = instance_create(room_width-100,30,obj_listmenu_topic);
-    pro.title = "Exit";
+    var titles = create_array("Add", "Save", "File", "Sort");
+    var xOffset = 150;
+    
+    for (var i = 0; i &lt; array_length_1d(titles); i++) {
+        scr_create_button(100 + xOffset*i, 30, LISTMENU_TOPIC, titles[i]);
+    }
+    
+    scr_create_button(room_width-100, 30, LISTMENU_TOPIC, "Exit");
 }
 global.restart = true;
 global.update = true;
@@ -61,8 +59,7 @@ draw_listx[3] = 1300;
 //Spawn Fallen if peril list not empty
 scr_load_peril_items();
 if (!ds_list_empty(name)) {
-    var pro = instance_create(400,70,obj_listmenu_topic);
-    pro.title = "Fallen";
+    scr_create_button(400,70, LISTMENU_TOPIC, "Fallen");
 }
 scr_destroy_items();
 
@@ -95,7 +92,7 @@ for(var i = 0; i&lt;ds_list_size(name); i++) {
         listx += 625;
         row ++;
     }
-    item = instance_create(listx,listy+space*k,obj_list_item);
+    item = scr_create_button(listx,listy+space*k, LIST_ITEM, "", "", obj_list_item);
     item.name = name[| i];
     item.bonus = bonus[| i];
     item.extra = extra[| i];
@@ -126,6 +123,8 @@ listy = 135;
 
 if (global.peril) then scr_save_peril_items();
 else scr_save_items();
+
+draw_warning = false;
 </string>
           </argument>
         </arguments>
@@ -180,7 +179,7 @@ if (global.restart) {
     instance_destroy(all);
     instance_create(x,y,obj_display_manager);
 } else {
-    instance_destroy(obj_list_item);
+    scr_destroy_buttons(LIST_ITEM);
     scr_destroy_buttons(NUMBER);
 }
 //Restore item back from fallen list
@@ -307,6 +306,29 @@ var xOffset = 390;
 draw_set_font(fnt_menu);
 draw_text(startX, drawY, "LeftCtrl + RMB = Delete");
 draw_text(startX + xOffset, drawY, "LeftShift + RMB = Ignore");
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw warning
+if (draw_warning) then draw_text(room_width/2,room_height/2,
+"First select or create#a list from File tab!")
 </string>
           </argument>
         </arguments>
