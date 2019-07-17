@@ -28,13 +28,8 @@
             <string>///Initialize
 event_inherited();
 
-name = noone;
-bonus = 0;
-extra = 0;
-whole = 0;
 ignored = 0;
 group = noone;
-position = 0;
 
 //starting values
 start_bonus = 0;

@@ -79,7 +79,7 @@ for (var i = 0; i &lt; array_length_1d(buttons); i++) {
     scr_create_button(b_xcenter + offset[i], b_ycenter, NUMBER, buttons[i], "Vote");
 }
 
-instance_create(global.vote_next_x,global.vote_next_y,obj_vote_next_step);
+scr_create_button(global.vote_next_x,global.vote_next_y, VOTE_NEXT_STEP, "Next step");
 
 //Create exit button
 instance_create(room_width-100,50,obj_vote_exit);
@@ -313,7 +313,7 @@ if (state == "round1") {
         global.voter += 1;
         global.vote_points = global.max_points_round_1;
         instance_destroy(obj_show_vote_list);
-        instance_destroy(obj_vote_item);
+        scr_destroy_buttons(VOTE_ITEM);
         //if all voters have not yet voted create new list
         if (global.voter &lt;= global.voter_amount) {
             instance_create(x,y,obj_show_vote_list);
@@ -363,7 +363,7 @@ if (state == "round2") {
         global.voter += 1;
         global.vote_points = global.max_points_round_2;
         instance_destroy(obj_show_vote_list);
-        instance_destroy(obj_vote_item);
+        scr_destroy_buttons(VOTE_ITEM);
         //if all voters have not yet voted create new list
         if (global.voter &lt;= global.voter_amount) {
             instance_create(x,y,obj_show_vote_list);

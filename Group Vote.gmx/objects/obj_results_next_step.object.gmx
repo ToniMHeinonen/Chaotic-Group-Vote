@@ -107,7 +107,7 @@ scr_strip_round2_items();
 scr_save_vote_items();
 obj_vote_master.state = "round2";
 instance_destroy(obj_show_vote_results);
-instance_destroy(obj_results_item);
+scr_destroy_buttons(RESULTS_ITEM);
 instance_create(x,y,obj_show_vote_list);
 instance_destroy();
 </string>

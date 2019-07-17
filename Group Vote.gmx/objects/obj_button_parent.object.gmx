@@ -39,6 +39,38 @@ hAlign = fa_center;
 layer = LAYER_NORMAL;
 image_index = global.night_mode;
 script = noone;
+
+// Items
+bonus = 0;
+extra = 0;
+whole = 0;
+position = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Control Vote Next Step stuff
+if (type == VOTE_NEXT_STEP) {
+    scr_destroy_items();
+}
 </string>
           </argument>
         </arguments>
@@ -148,6 +180,58 @@ selected = scr_check_if_selected(id, layer);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Control Vote Item stuff
+if (type == VOTE_ITEM) {
+    //reset name if unclicked
+    if (global.clicked[position] == false) then name = old_name;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Control Vote Next Step stuff
+if (type == VOTE_NEXT_STEP) {
+    //destroy if points reverted
+    if (global.vote_points &gt; 0) {
+        instance_destroy();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="6" enumb="4">
       <action>
@@ -244,6 +328,40 @@ if (title == "Fallen") {
         image_blend = global.selected_color;
     }
     draw_text(x,y,title);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw results item stuff
+if (type == RESULTS_ITEM) {
+    var space = 100;
+    var names = 150;
+    draw_text(x+150,y,bonus+extra);
+    draw_text(x+300,y,whole);
+    for(var i = 1; i &lt;= global.voter_amount; i++) {
+        if (global.voted_item[i,position] == 0) {
+            draw_text(x+300+names*i,y,"");
+        } else {
+            draw_text(x+300+names*i,y,global.voted_item[i,position]);
+        }
+    }
 }
 </string>
           </argument>

@@ -57,7 +57,7 @@ for(var i = 0; i&lt;ds_list_size(name); i++) {
         k = 0;
         starting_x += 275;
     }
-    item = instance_create(starting_x,starting_y+space*k,obj_vote_item);
+    item = scr_create_button(starting_x,starting_y+space*k, VOTE_ITEM, "");
     item.old_name = name[| i];
     item.bonus = bonus[| i];
     item.extra = extra[| i];

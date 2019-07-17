@@ -30,7 +30,7 @@ scr_load_vote_profiles();
 
 
 for(var i = 0; i&lt;ds_list_size(profile); i++) {
-    item = instance_create(global.profilex,global.profiley+space*i,obj_vote_profile);
+    item = scr_create_button(global.profilex,global.profiley+space*i, VOTE_PROFILE, "");
     item.name = profile[| i];
     item.position = i;
 }

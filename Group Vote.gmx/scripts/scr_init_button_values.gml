@@ -108,7 +108,6 @@ switch (type) {
         script = scr_clicked_saved_list;
         // Specific
         depth = -55;
-        position = 0;
         break;
     }
     case LIST_ITEM: {
@@ -118,6 +117,51 @@ switch (type) {
         scrollable = false;
         hAlign = fa_left;
         script = scr_clicked_list_item;
+        break;
+    }
+    case VOTE_ITEM: {
+        sprite_index = spr_vote;
+        layer = LAYER_NORMAL;
+        font = fnt_small;
+        scrollable = false;
+        hAlign = fa_left;
+        script = scr_clicked_vote_item;
+        // Specific
+        drawName = true;
+        break;
+    }
+    case VOTE_PROFILE: {
+        sprite_index = spr_box;
+        layer = LAYER_NORMAL;
+        font = fnt_menu;
+        scrollable = true;
+        hAlign = fa_center;
+        script = scr_clicked_vote_profile;
+        // Specific
+        drawName = true;
+        break;
+    }
+    case RESULTS_ITEM: {
+        sprite_index = spr_vote;
+        layer = LAYER_NORMAL;
+        font = fnt_small;
+        scrollable = true;
+        hAlign = fa_left;
+        script = scr_clicked_null;
+        // Specific
+        drawName = true;
+        break;
+    }
+    case VOTE_NEXT_STEP: {
+        sprite_index = spr_listmenu;
+        layer = LAYER_NORMAL;
+        font = fnt_menu;
+        scrollable = false;
+        hAlign = fa_center;
+        script = scr_clicked_vote_next_step;
+        // Specific
+        cur_voter = global.voter;
+        scr_load_vote_items();
         break;
     }
 }

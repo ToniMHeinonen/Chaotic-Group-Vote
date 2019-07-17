@@ -71,7 +71,7 @@ for (var j = 0; j &lt; ds_list_size(name)-1; j++) {
 
 
 for(var i = 0; i&lt;global.max_points_round_1; i++) {
-    item = instance_create(starting_x,starting_y+space*i,obj_results_item);
+    item = scr_create_button(starting_x,starting_y+space*i, RESULTS_ITEM, "");
     item.name = name[| i];
     item.bonus = bonus[| i];
     item.extra = extra[| i];
@@ -81,7 +81,7 @@ for(var i = 0; i&lt;global.max_points_round_1; i++) {
     if (i = global.max_points_round_1-1) {
         var j = i;
         while (whole[| j] == whole[| j+1]) {
-            item = instance_create(starting_x,starting_y+space*(j+1),obj_results_item);
+            item = scr_create_button(starting_x,starting_y+space*(j+1),RESULTS_ITEM,"");
             item.name = name[| j+1];
             item.bonus = bonus[| j+1];
             item.extra = extra[| j+1];

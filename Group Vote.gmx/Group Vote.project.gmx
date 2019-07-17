@@ -88,6 +88,7 @@
     <script>scripts\scr_after_clicked.gml</script>
     <script>scripts\scr_init_button_values.gml</script>
     <scripts name="Clicked Buttons">
+      <script>scripts\scr_clicked_null.gml</script>
       <script>scripts\scr_clicked_menu.gml</script>
       <script>scripts\scr_clicked_setting_topic.gml</script>
       <script>scripts\scr_clicked_setting_item.gml</script>
@@ -99,6 +100,9 @@
       <script>scripts\scr_clicked_listmenu_item.gml</script>
       <script>scripts\scr_clicked_saved_list.gml</script>
       <script>scripts\scr_clicked_list_item.gml</script>
+      <script>scripts\scr_clicked_vote_item.gml</script>
+      <script>scripts\scr_clicked_vote_profile.gml</script>
+      <script>scripts\scr_clicked_vote_next_step.gml</script>
     </scripts>
     <scripts name="Helper">
       <script>scripts\create_array.gml</script>
@@ -117,7 +121,6 @@
     </objects>
     <objects name="Voting">
       <objects name="Buttons">
-        <object>objects\obj_vote_next_step</object>
         <object>objects\obj_vote_previous_step</object>
         <object>objects\obj_results_next_step</object>
         <object>objects\obj_vote_finish</object>
@@ -125,11 +128,8 @@
       </objects>
       <object>objects\obj_vote_master</object>
       <object>objects\obj_show_vote_list</object>
-      <object>objects\obj_vote_item</object>
       <object>objects\obj_show_vote_profiles</object>
-      <object>objects\obj_vote_profile</object>
       <object>objects\obj_show_vote_results</object>
-      <object>objects\obj_results_item</object>
     </objects>
     <objects name="Menu">
       <object>objects\obj_menu_master</object>
