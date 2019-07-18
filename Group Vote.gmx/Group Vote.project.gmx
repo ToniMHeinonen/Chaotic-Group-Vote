@@ -79,6 +79,7 @@
     <script>scripts\scr_create_button.gml</script>
     <script>scripts\scr_destroy_buttons.gml</script>
     <script>scripts\scr_check_if_lowest_depth.gml</script>
+    <script>scripts\scr_button_exists.gml</script>
     <script>scripts\scr_layer_control.gml</script>
     <script>scripts\scr_layer_control_pressed.gml</script>
     <script>scripts\init_necessary_button_values.gml</script>
@@ -103,6 +104,10 @@
       <script>scripts\scr_clicked_vote_item.gml</script>
       <script>scripts\scr_clicked_vote_profile.gml</script>
       <script>scripts\scr_clicked_vote_next_step.gml</script>
+      <script>scripts\scr_clicked_vote_previous_step.gml</script>
+      <script>scripts\scr_clicked_results_next_step.gml</script>
+      <script>scripts\scr_clicked_vote_finish.gml</script>
+      <script>scripts\scr_clicked_vote_exit.gml</script>
     </scripts>
     <scripts name="Helper">
       <script>scripts\create_array.gml</script>
@@ -120,12 +125,6 @@
       <object>objects\obj_UI_controller</object>
     </objects>
     <objects name="Voting">
-      <objects name="Buttons">
-        <object>objects\obj_vote_previous_step</object>
-        <object>objects\obj_results_next_step</object>
-        <object>objects\obj_vote_finish</object>
-        <object>objects\obj_vote_exit</object>
-      </objects>
       <object>objects\obj_vote_master</object>
       <object>objects\obj_show_vote_list</object>
       <object>objects\obj_show_vote_profiles</object>

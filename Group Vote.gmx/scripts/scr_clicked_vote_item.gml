@@ -10,7 +10,8 @@ if (!global.clicked[position]) && (global.vote_points > 0) {
         scr_create_button(global.vote_next_x,global.vote_next_y, VOTE_NEXT_STEP,
         "Next step");
     }
-    if (!instance_exists(obj_vote_previous_step)) {
-        instance_create(global.vote_prev_x,global.vote_prev_y,obj_vote_previous_step);
+    if (!scr_button_exists(VOTE_PREVIOUS_STEP)) {
+        scr_create_button(global.vote_prev_x,global.vote_prev_y,
+            VOTE_PREVIOUS_STEP, "Prev step");
     }
 }

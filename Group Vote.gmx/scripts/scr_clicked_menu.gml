@@ -7,13 +7,13 @@ if (title == "Vote") {
             warning_text = "First select list from Show List";
             alarm[0] = 120;
         }
-    } else if (ds_list_empty(profile)) {
+    } else if (ds_list_empty(obj_menu_master.profile)) {
         with (obj_menu_master) {
             draw_warning = true;
             warning_text = "First create a profile in Settings";
             alarm[0] = 120;
         }
-    } else if (ds_list_size(name) < global.max_points_round_1) {
+    } else if (ds_list_size(obj_menu_master.name) < global.max_points_round_1) {
         with (obj_menu_master) {
             draw_warning = true;
             warning_text = "Add more items to list#(At least " + string(global.max_points_round_1) + " required!)";

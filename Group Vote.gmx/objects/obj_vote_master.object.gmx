@@ -82,7 +82,7 @@ for (var i = 0; i &lt; array_length_1d(buttons); i++) {
 scr_create_button(global.vote_next_x,global.vote_next_y, VOTE_NEXT_STEP, "Next step");
 
 //Create exit button
-instance_create(room_width-100,50,obj_vote_exit);
+scr_create_button(room_width-100,50, VOTE_EXIT, "Exit");
 
 margin = 50;
 text = "How many voters?";
@@ -322,7 +322,7 @@ if (state == "round1") {
             global.vote_points = global.max_points_round_2;
             global.max_vote_points = global.vote_points;
             instance_create(x,y,obj_show_vote_results);
-            instance_create(room_width/2,40,obj_results_next_step);
+            scr_create_button(room_width/2,40, RESULTS_NEXT_STEP, "Next step");
             state = "results1";
         }
     }
@@ -370,7 +370,7 @@ if (state == "round2") {
         } else {
             global.voter = 1;
             instance_create(x,y,obj_show_vote_results);
-            instance_create(room_width/2,40,obj_vote_finish);
+            scr_create_button(room_width/2,40, VOTE_FINISH, "Save and exit");
             state = "results2";
         }
     }

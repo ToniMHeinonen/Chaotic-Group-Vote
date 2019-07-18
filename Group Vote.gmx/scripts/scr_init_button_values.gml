@@ -124,7 +124,7 @@ switch (type) {
         layer = LAYER_NORMAL;
         font = fnt_small;
         scrollable = false;
-        hAlign = fa_left;
+        hAlign = fa_center;
         script = scr_clicked_vote_item;
         // Specific
         drawName = true;
@@ -155,13 +155,53 @@ switch (type) {
     case VOTE_NEXT_STEP: {
         sprite_index = spr_listmenu;
         layer = LAYER_NORMAL;
-        font = fnt_menu;
+        font = fnt_small;
         scrollable = false;
         hAlign = fa_center;
         script = scr_clicked_vote_next_step;
         // Specific
         cur_voter = global.voter;
         scr_load_vote_items();
+        break;
+    }
+    case VOTE_PREVIOUS_STEP: {
+        sprite_index = spr_listmenu;
+        layer = LAYER_NORMAL;
+        font = fnt_small;
+        scrollable = false;
+        hAlign = fa_center;
+        script = scr_clicked_vote_previous_step;
+        // Specific
+        scr_load_vote_items();
+        break;
+    }
+    case RESULTS_NEXT_STEP: {
+        sprite_index = spr_vote;
+        layer = LAYER_NORMAL;
+        font = fnt_menu;
+        scrollable = false;
+        hAlign = fa_center;
+        script = scr_clicked_results_next_step;
+        break;
+    }
+    case VOTE_FINISH: {
+        sprite_index = spr_vote;
+        layer = LAYER_NORMAL;
+        font = fnt_menu;
+        scrollable = false;
+        hAlign = fa_center;
+        script = scr_clicked_vote_finish;
+        // Specifid
+        found = false;
+        break;
+    }
+    case VOTE_EXIT: {
+        sprite_index = spr_listmenu;
+        layer = LAYER_NORMAL;
+        font = fnt_menu;
+        scrollable = false;
+        hAlign = fa_center;
+        script = scr_clicked_vote_exit;
         break;
     }
 }

@@ -67,8 +67,8 @@ position = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Control Vote Next Step stuff
-if (type == VOTE_NEXT_STEP) {
+            <string>/// Destroy items in some types
+if (type == VOTE_NEXT_STEP or type == RESULTS_NEXT_STEP or type == VOTE_FINISH) {
     scr_destroy_items();
 }
 </string>
@@ -225,6 +225,33 @@ if (type == VOTE_ITEM) {
 if (type == VOTE_NEXT_STEP) {
     //destroy if points reverted
     if (global.vote_points &gt; 0) {
+        instance_destroy();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Control Vote Previous Step stuff
+if (type == VOTE_PREVIOUS_STEP) {
+    ///destroy if max voting points
+    if (global.vote_points == global.max_vote_points) or (global.vote_points &lt; 0) {
         instance_destroy();
     }
 }
