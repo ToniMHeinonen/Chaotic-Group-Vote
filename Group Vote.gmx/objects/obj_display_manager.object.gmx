@@ -48,6 +48,9 @@ if (ideal_width &amp; 1){
 //Calculate max zoom
 max_zoom = floor(display_get_width()/ideal_width);
 
+var backgrounds = scr_find_all_backgrounds();
+var rnd_bg = backgrounds[irandom_range(0, array_length_1d(backgrounds)-1)];
+
 for (var i=1;i&lt;=room_last;i++) {
     if (room_exists(i)) {
         room_set_view(i,0,true,0,0,ideal_width,ideal_height,0,0,ideal_width,ideal_height,0,0,0,0,-1);
@@ -55,7 +58,7 @@ for (var i=1;i&lt;=room_last;i++) {
         //Change room size (I added this code)
         room_set_width(i,ideal_width);
         room_set_height(i,ideal_height);
-        room_set_background(i, 0, 1, 0, bg_1, 0, 0, 1, 1, 0, 0, 0.8);
+        room_set_background(i, 0, 1, 0, rnd_bg, 0, 0, 1, 1, 0, 0, 0.8);
     }
 }
 

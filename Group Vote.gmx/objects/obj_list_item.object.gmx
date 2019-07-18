@@ -187,12 +187,11 @@ if (keyboard_check(vk_lcontrol)) {
 event_inherited();
 
 // Draw point values
-draw_text(x,y,name);
 draw_set_halign(fa_center);
 draw_set_color(global.text_color);
-draw_text(bonus_x,y,bonus);
-draw_text(extra_x,y,extra);
-draw_text(whole_x,y,whole);
+draw_text_outline(bonus_x,y,bonus,font);
+draw_text_outline(extra_x,y,extra,font);
+draw_text_outline(whole_x,y,whole,font);
 // If game is ignored, draw line on top of it
 if (ignored) {
     draw_line_width_colour(x-5,y,x+245,y,2,c_orange,global.text_color);

@@ -45,6 +45,7 @@ bonus = 0;
 extra = 0;
 whole = 0;
 position = 0;
+myTextSurface = -1;
 </string>
           </argument>
         </arguments>
@@ -380,13 +381,14 @@ if (title == "Fallen") {
 if (type == RESULTS_ITEM) {
     var space = 100;
     var names = 150;
-    draw_text(x+150,y,bonus+extra);
-    draw_text(x+300,y,whole);
+    font = fnt_menu;
+    draw_text_outline(x+150,y,bonus+extra,font);
+    draw_text_outline(x+300,y,whole,font);
     for(var i = 1; i &lt;= global.voter_amount; i++) {
         if (global.voted_item[i,position] == 0) {
-            draw_text(x+300+names*i,y,"");
+            draw_text_outline(x+300+names*i,y,"",font);
         } else {
-            draw_text(x+300+names*i,y,global.voted_item[i,position]);
+            draw_text_outline(x+300+names*i,y,global.voted_item[i,position],font);
         }
     }
 }

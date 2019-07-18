@@ -117,6 +117,8 @@ switch (type) {
         scrollable = false;
         hAlign = fa_left;
         script = scr_clicked_list_item;
+        // Specific
+        drawName = true;
         break;
     }
     case VOTE_ITEM: {

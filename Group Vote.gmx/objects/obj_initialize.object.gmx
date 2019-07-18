@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Globals
+randomize();
 scr_load_settings();
 global.popup = false;
 global.block = false;

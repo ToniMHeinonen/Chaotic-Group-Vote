@@ -3,6 +3,13 @@
 var inst = argument[0];
 var clickedButtons = scr_find_all_clicked_buttons();
 
+// show_debug_message("length " + string(array_length_1d(clickedButtons)));
+// how to repeat bug: go to vote and horizontally click fast all the items
+// Weird bug with Gamemaker, this should not have to be checked
+if (array_length_1d(clickedButtons) == 0) {
+    return false;
+}
+
 // Order then by lowest depth
 while (true) {
     var lowestFound = true;

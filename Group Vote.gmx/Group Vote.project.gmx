@@ -27,6 +27,9 @@
   <backgrounds name="background">
     <background>background\bg_0</background>
     <background>background\bg_1</background>
+    <background>background\bg_2</background>
+    <background>background\bg_3</background>
+    <background>background\bg_4</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -112,11 +115,15 @@
     <scripts name="Helper">
       <script>scripts\create_array.gml</script>
       <script>scripts\scr_find_all_clicked_buttons.gml</script>
+      <script>scripts\draw_text_outline.gml</script>
+      <script>scripts\scr_find_all_backgrounds.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_menu</font>
+    <font>fonts\fnt_menu_outline</font>
     <font>fonts\fnt_small</font>
+    <font>fonts\fnt_small_outline</font>
   </fonts>
   <objects name="objects">
     <objects name="Initialize">
