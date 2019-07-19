@@ -30,6 +30,7 @@
     <background>background\bg_2</background>
     <background>background\bg_3</background>
     <background>background\bg_4</background>
+    <background>background\bg_5</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
