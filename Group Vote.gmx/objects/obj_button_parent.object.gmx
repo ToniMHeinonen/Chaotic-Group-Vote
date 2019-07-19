@@ -69,7 +69,7 @@ myTextSurface = -1;
           <argument>
             <kind>1</kind>
             <string>/// Destroy items in some types
-if (type == VOTE_NEXT_STEP or type == RESULTS_NEXT_STEP or type == VOTE_FINISH) {
+if (type == VOTE_STEP or type == RESULTS_NEXT_STEP or type == VOTE_FINISH) {
     scr_destroy_items();
 }
 </string>
@@ -145,7 +145,16 @@ script_execute(script);
           <argument>
             <kind>1</kind>
             <string>/// After clicked
-scr_after_clicked();
+
+// Reset necessary selections
+if (!global.popup) {
+    global.selectedItem = noone;
+}
+if (!global.block) {
+    global.selectedNormal = noone;
+    global.selectedBlock = noone;
+    global.selectedItem = noone;
+}
 </string>
           </argument>
         </arguments>
@@ -223,7 +232,7 @@ if (type == VOTE_ITEM) {
           <argument>
             <kind>1</kind>
             <string>/// Control Vote Next Step stuff
-if (type == VOTE_NEXT_STEP) {
+if (type == VOTE_STEP &amp;&amp; title == "Next step") {
     //destroy if points reverted
     if (global.vote_points &gt; 0) {
         instance_destroy();
@@ -250,7 +259,7 @@ if (type == VOTE_NEXT_STEP) {
           <argument>
             <kind>1</kind>
             <string>/// Control Vote Previous Step stuff
-if (type == VOTE_PREVIOUS_STEP) {
+if (type == VOTE_STEP &amp;&amp; title == "Prev step") {
     ///destroy if max voting points
     if (global.vote_points == global.max_vote_points) or (global.vote_points &lt; 0) {
         instance_destroy();
@@ -278,8 +287,46 @@ if (type == VOTE_PREVIOUS_STEP) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Parent layer control
-scr_layer_control_pressed();
+            <string>/// Layer control pressed
+
+// If object already active, skip code
+if (scr_check_if_selected(id,layer))
+    exit;
+
+// If this clicked object does not have lowest depth, skip code
+if (!scr_check_if_lowest_depth(id)) {
+    exit;
+}
+
+var blockOn = global.block;
+var popupOn = global.popup;
+enableBlock = false;
+enablePopup = false;
+
+// Use buttons, enable block and popup there
+alarm[0] = 1;
+
+switch (layer) {
+    case LAYER_NORMAL: {
+        global.block = false;
+        global.popup = false;
+        break;
+    }
+    case LAYER_BLOCK_TOPIC: {
+        global.block = false;
+        global.popup = false;
+        enableBlock = true;
+        break;
+    }
+    case LAYER_BLOCK_ITEM: {
+        global.popup = false;
+        break;
+    }
+    case LAYER_POPUP: {
+        enablePopup = true;
+        break;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -381,6 +428,7 @@ if (title == "Fallen") {
 if (type == RESULTS_ITEM) {
     var space = 100;
     var names = 150;
+    var prevFont = font;
     font = fnt_menu;
     draw_text_outline(x+150,y,bonus+extra,font);
     draw_text_outline(x+300,y,whole,font);
@@ -391,6 +439,8 @@ if (type == RESULTS_ITEM) {
             draw_text_outline(x+300+names*i,y,global.voted_item[i,position],font);
         }
     }
+    
+    font = prevFont;
 }
 </string>
           </argument>

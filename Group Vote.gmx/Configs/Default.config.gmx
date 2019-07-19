@@ -678,7 +678,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="23">
+    <constants number="22">
       <constant name="LAYER_NORMAL">0</constant>
       <constant name="LAYER_BLOCK_TOPIC">1</constant>
       <constant name="LAYER_BLOCK_ITEM">2</constant>
@@ -698,10 +698,9 @@
       <constant name="VOTE_PROFILE">12</constant>
       <constant name="RESULTS_ITEM">13</constant>
       <constant name="RESULTS_NEXT_STEP">14</constant>
-      <constant name="VOTE_NEXT_STEP">15</constant>
-      <constant name="VOTE_PREVIOUS_STEP">16</constant>
-      <constant name="VOTE_FINISH">17</constant>
-      <constant name="VOTE_EXIT">18</constant>
+      <constant name="VOTE_STEP">15</constant>
+      <constant name="VOTE_FINISH">16</constant>
+      <constant name="VOTE_EXIT">17</constant>
     </constants>
   </ConfigConstants>
 </Config>

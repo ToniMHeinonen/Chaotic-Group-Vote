@@ -34,6 +34,7 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\scr_change_room.gml</script>
     <scripts name="Old unorganized">
       <script>scripts\scr_load_items.gml</script>
       <script>scripts\scr_save_items.gml</script>
@@ -80,18 +81,16 @@
       <script>scripts\scr_sort_by_bonus.gml</script>
       <script>scripts\scr_sort_items.gml</script>
     </scripts>
-    <script>scripts\scr_create_button.gml</script>
-    <script>scripts\scr_destroy_buttons.gml</script>
-    <script>scripts\scr_check_if_lowest_depth.gml</script>
-    <script>scripts\scr_button_exists.gml</script>
-    <script>scripts\scr_layer_control.gml</script>
-    <script>scripts\scr_layer_control_pressed.gml</script>
-    <script>scripts\init_necessary_button_values.gml</script>
-    <script>scripts\scr_change_room.gml</script>
-    <script>scripts\scr_select_this.gml</script>
-    <script>scripts\scr_check_if_selected.gml</script>
-    <script>scripts\scr_after_clicked.gml</script>
-    <script>scripts\scr_init_button_values.gml</script>
+    <scripts name="Buttons">
+      <script>scripts\scr_create_button.gml</script>
+      <script>scripts\scr_destroy_buttons.gml</script>
+      <script>scripts\scr_check_if_lowest_depth.gml</script>
+      <script>scripts\scr_button_exists.gml</script>
+      <script>scripts\scr_layer_control.gml</script>
+      <script>scripts\scr_select_this.gml</script>
+      <script>scripts\scr_check_if_selected.gml</script>
+      <script>scripts\scr_init_button_values.gml</script>
+    </scripts>
     <scripts name="Clicked Buttons">
       <script>scripts\scr_clicked_null.gml</script>
       <script>scripts\scr_clicked_menu.gml</script>
@@ -107,8 +106,7 @@
       <script>scripts\scr_clicked_list_item.gml</script>
       <script>scripts\scr_clicked_vote_item.gml</script>
       <script>scripts\scr_clicked_vote_profile.gml</script>
-      <script>scripts\scr_clicked_vote_next_step.gml</script>
-      <script>scripts\scr_clicked_vote_previous_step.gml</script>
+      <script>scripts\scr_clicked_vote_step.gml</script>
       <script>scripts\scr_clicked_results_next_step.gml</script>
       <script>scripts\scr_clicked_vote_finish.gml</script>
       <script>scripts\scr_clicked_vote_exit.gml</script>

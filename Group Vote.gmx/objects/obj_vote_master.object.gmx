@@ -79,7 +79,7 @@ for (var i = 0; i &lt; array_length_1d(buttons); i++) {
     scr_create_button(b_xcenter + offset[i], b_ycenter, NUMBER, buttons[i], "Vote");
 }
 
-scr_create_button(global.vote_next_x,global.vote_next_y, VOTE_NEXT_STEP, "Next step");
+scr_create_button(global.vote_next_x,global.vote_next_y, VOTE_STEP, "Next step");
 
 //Create exit button
 scr_create_button(room_width-100,50, VOTE_EXIT, "Exit");

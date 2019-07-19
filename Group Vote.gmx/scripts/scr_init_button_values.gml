@@ -148,32 +148,21 @@ switch (type) {
         layer = LAYER_NORMAL;
         font = fnt_small;
         scrollable = true;
-        hAlign = fa_left;
+        hAlign = fa_center;
         script = scr_clicked_null;
         // Specific
         drawName = true;
         break;
     }
-    case VOTE_NEXT_STEP: {
+    case VOTE_STEP: {
         sprite_index = spr_listmenu;
         layer = LAYER_NORMAL;
         font = fnt_small;
         scrollable = false;
         hAlign = fa_center;
-        script = scr_clicked_vote_next_step;
+        script = scr_clicked_vote_step;
         // Specific
         cur_voter = global.voter;
-        scr_load_vote_items();
-        break;
-    }
-    case VOTE_PREVIOUS_STEP: {
-        sprite_index = spr_listmenu;
-        layer = LAYER_NORMAL;
-        font = fnt_small;
-        scrollable = false;
-        hAlign = fa_center;
-        script = scr_clicked_vote_previous_step;
-        // Specific
         scr_load_vote_items();
         break;
     }
