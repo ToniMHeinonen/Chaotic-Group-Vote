@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.popup = false;
+            <string>/// Create results
+global.popup = false;
 global.round2_items = global.max_points_round_1;
 scr_load_vote_items();
 starting_x = 200;
@@ -33,17 +34,24 @@ starting_y = room_height/2-200;
 space = 50;
 topic = 75;
 names = 150;
+var secondRound = obj_vote_master.state == "results2";
 
+// Count peril, bonus and votes
 var add_votes = 0;
-for (var i = 0; i &lt; ds_list_size(name)-1; i++) {
+for (var i = 0; i &lt; ds_list_size(name); i++) {
     for (var k = 1; k &lt;= global.voter_amount; k++) {
         add_votes += global.voted_item[k,i]
     }
-    whole[| i] = bonus[| i] + extra[| i] + add_votes;
+    // Halven extra points on second round
+    if (secondRound)
+        whole[| i] = ceil((bonus[| i] + extra[| i]) / 2) + add_votes;
+    else
+        whole[| i] = bonus[| i] + extra[| i] + add_votes;
     add_votes = 0;
+    show_debug_message(name[| i] + " " + string(whole[| i]));
 }
 
-
+// Sort items by whole
 for (var j = 0; j &lt; ds_list_size(name)-1; j++) {
     for (var i = 0; i &lt; ds_list_size(name)-1; i++) {
         if (scr_compare_reals(whole[| i], whole[| i+1]) == -1)  {
@@ -76,6 +84,12 @@ for(var i = 0; i&lt;global.max_points_round_1; i++) {
     item.bonus = bonus[| i];
     item.extra = extra[| i];
     item.whole = whole[| i];
+    // If second round, halven bonus points
+    if (secondRound)
+        item.bonuses = ceil((bonus[| i] + extra[| i]) / 2)
+    else
+        item.bonuses = bonus[| i] + extra[| i]
+    
     item.position = i;
     //add items which have the same value as last item
     if (i = global.max_points_round_1-1) {

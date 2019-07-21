@@ -368,10 +368,10 @@ if (state == "round2") {
         if (global.voter &lt;= global.voter_amount) {
             instance_create(x,y,obj_show_vote_list);
         } else {
+            state = "results2";
             global.voter = 1;
             instance_create(x,y,obj_show_vote_results);
             scr_create_button(room_width/2,40, VOTE_FINISH, "Save and exit");
-            state = "results2";
         }
     }
 }

@@ -24,8 +24,13 @@ for (var i = 0; i < ds_list_size(name); i++) {
         if (!ignored[| i]) then extra[| i] += 1;
     }
 }
+// Drop every item to fallen which has over max peril points
 scr_drop_peril_items();
+
+// Save modifications
 scr_save_items();
+
+// Load all the orevious peril items, add new dropped ones and save
 scr_load_peril_items();
 scr_add_peril_items();
 scr_save_peril_items();

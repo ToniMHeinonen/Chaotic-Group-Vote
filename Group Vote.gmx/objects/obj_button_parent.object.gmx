@@ -45,7 +45,7 @@ bonus = 0;
 extra = 0;
 whole = 0;
 position = 0;
-myTextSurface = -1;
+bonuses = 0;
 </string>
           </argument>
         </arguments>
@@ -430,7 +430,7 @@ if (type == RESULTS_ITEM) {
     var names = 150;
     var prevFont = font;
     font = fnt_menu;
-    draw_text_outline(x+150,y,bonus+extra,font);
+    draw_text_outline(x+150,y,bonuses,font);
     draw_text_outline(x+300,y,whole,font);
     for(var i = 1; i &lt;= global.voter_amount; i++) {
         if (global.voted_item[i,position] == 0) {
