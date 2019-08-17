@@ -35,20 +35,26 @@ space = 50;
 topic = 75;
 names = 150;
 var secondRound = obj_vote_master.state == "results2";
+var itemVoted;
 
 // Count peril, bonus and votes
-var add_votes = 0;
 for (var i = 0; i &lt; ds_list_size(name); i++) {
+    // Default state not voted
+    itemVoted[i] = false;
+    var add_votes = 0;
+    
     for (var k = 1; k &lt;= global.voter_amount; k++) {
         add_votes += global.voted_item[k,i]
     }
-    // Halven extra points on second round
-    if (secondRound)
-        whole[| i] = ceil((bonus[| i] + extra[| i]) / 2) + add_votes;
-    else
-        whole[| i] = bonus[| i] + extra[| i] + add_votes;
-    add_votes = 0;
-    show_debug_message(name[| i] + " " + string(whole[| i]));
+    
+    if (add_votes &gt; 0) {
+        itemVoted[i] = true;
+        // Halven extra points on second round
+        if (secondRound)
+            whole[| i] = ceil((bonus[| i] + extra[| i]) / 2) + add_votes;
+        else
+            whole[| i] = bonus[| i] + extra[| i] + add_votes;
+    }
 }
 
 // Sort items by whole
@@ -67,6 +73,10 @@ for (var j = 0; j &lt; ds_list_size(name)-1; j++) {
             bonus[| i+1] = store_bonus;
             extra[| i] = extra[| i+1];
             extra[| i+1] = store_extra;
+            // Move item voted
+            var store_voted = itemVoted[i];
+            itemVoted[i] = itemVoted[i+1];
+            itemVoted[i+1] = store_voted;
             //change voted item list too
             for (var k = 1; k &lt;= global.voter_amount; k++) {
                 var store_voted_item = global.voted_item[k,i];
@@ -77,9 +87,18 @@ for (var j = 0; j &lt; ds_list_size(name)-1; j++) {
     }
 }
 
-
-for(var i = 0; i&lt;global.max_points_round_1; i++) {
-    item = scr_create_button(starting_x,starting_y+space*i, RESULTS_ITEM, "");
+var vote_points = global.max_points_round_1;
+var pos = 0;
+for(var i = 0; i &lt; vote_points; i++) {
+    if (obj_vote_master.state == "results1") {
+        // If item was not voted, don't count it in list
+        if (!itemVoted[i]) {
+            vote_points++; // Check 1 more item on list
+            continue;
+        }
+    }
+    
+    item = scr_create_button(starting_x,starting_y+space*pos, RESULTS_ITEM, "");
     item.name = name[| i];
     item.bonus = bonus[| i];
     item.extra = extra[| i];
@@ -91,11 +110,14 @@ for(var i = 0; i&lt;global.max_points_round_1; i++) {
         item.bonuses = bonus[| i] + extra[| i]
     
     item.position = i;
+    // Item was successfully added, add 1 to pos
+    pos++;
+    
     //add items which have the same value as last item
-    if (i = global.max_points_round_1-1) {
+    if (i = vote_points-1) {
         var j = i;
         while (whole[| j] == whole[| j+1]) {
-            item = scr_create_button(starting_x,starting_y+space*(j+1),RESULTS_ITEM,"");
+            item = scr_create_button(starting_x,starting_y+space*(pos+1),RESULTS_ITEM,"");
             item.name = name[| j+1];
             item.bonus = bonus[| j+1];
             item.extra = extra[| j+1];
@@ -103,6 +125,35 @@ for(var i = 0; i&lt;global.max_points_round_1; i++) {
             item.position = j+1;
             global.round2_items += 1;
             j += 1;
+            pos++;
+        }
+    }
+}
+
+// Only do this on first vote
+if (obj_vote_master.state == "results1") {
+    // Move all unvoted items lower than voted items
+    var itemsAdded = 0;
+    for (var i = 0; i &lt; array_length_1d(itemVoted); i++) {
+        if (itemVoted[i]) {
+            if (i &gt; itemsAdded) {
+                var store_whole = whole[| itemsAdded];
+                var store_name = name[| itemsAdded];
+                var store_bonus = bonus[| itemsAdded];
+                var store_extra = extra[| itemsAdded];
+                var store_voted = itemVoted[itemsAdded];
+                whole[| itemsAdded] = whole[| i];
+                name[| itemsAdded] = name[| i];
+                bonus[| itemsAdded] = bonus[| i];
+                extra[| itemsAdded] = extra[| i];
+                itemVoted[itemsAdded] = itemVoted[i];
+                whole[| i] = store_whole;
+                name[| i] = store_name;
+                bonus[| i] = store_bonus;
+                extra[| i] = store_extra;
+                itemVoted[i] = store_voted;
+            }
+            itemsAdded++;
         }
     }
 }

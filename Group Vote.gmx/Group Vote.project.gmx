@@ -34,7 +34,6 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_change_room.gml</script>
     <scripts name="Old unorganized">
       <script>scripts\scr_load_items.gml</script>
       <script>scripts\scr_save_items.gml</script>
@@ -116,6 +115,7 @@
       <script>scripts\scr_find_all_clicked_buttons.gml</script>
       <script>scripts\draw_text_outline.gml</script>
       <script>scripts\scr_find_all_backgrounds.gml</script>
+      <script>scripts\scr_change_room.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
