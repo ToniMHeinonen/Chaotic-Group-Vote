@@ -15,6 +15,14 @@ else if (title == "Display") {
     scr_create_button(block_x, block_y+space, SETTING_ITEM, "Night mode", "Display");
 }
 
+else if (title == "Adjustments") {
+    block_x = x1+100;
+    block_y = y-150;
+    if (block_y < 50) then block_y = 50;
+    scr_create_button(block_x, block_y, SETTING_ITEM, "Halven bonus", "Display");
+    scr_create_button(block_x, block_y+space, SETTING_ITEM, "Ignore unvoted", "Display");
+}
+
 if (title == "Exit") {
     scr_save_settings();
     scr_change_room(rm_menu);

@@ -446,6 +446,47 @@ if (type == RESULTS_ITEM) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Half bonus and ignore unvoted
+if (title == "Halven bonus" or title == "Ignore unvoted") {
+    var boxSize = 27;
+    var x1 = x + 100;
+    var x2 = x1 + boxSize;
+    var y1 = y + boxSize/2;
+    var y2 = y - boxSize/2;
+    
+    draw_set_color(c_white);
+    draw_rectangle(x1, y1, x2, y2, true);
+    
+    if (title == "Halven bonus") {
+        if (global.half_bonus) {
+            draw_rectangle(x1, y1, x2, y2, false);
+        }
+    } else if (title == "Ignore unvoted") {
+        if (global.ignore_unvoted) {
+            draw_rectangle(x1, y1, x2, y2, false);
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>

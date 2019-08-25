@@ -13,8 +13,14 @@ else if (creator == "Display") {
     if (title == "Fullscreen") {
         global.fullscreen = !global.fullscreen;
     }
-    if (title == "Night mode") {
+    else if (title == "Night mode") {
         global.night_mode = !global.night_mode;
         scr_change_room(rm_settings);
+    }
+    else if (title == "Halven bonus") {
+        global.half_bonus = !global.half_bonus;
+    }
+    else if (title == "Ignore unvoted") {
+        global.ignore_unvoted = !global.ignore_unvoted;
     }
 }

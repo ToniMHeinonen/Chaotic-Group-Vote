@@ -44,7 +44,8 @@ if (room == rm_menu) {
 
 setTitles[0] = "Profile";
 setTitles[1] = "Display";
-setTitles[2] = "Exit";
+setTitles[2] = "Adjustments";
+setTitles[3] = "Exit";
 
 if (room == rm_settings) {
     for (var i = 0; i &lt; array_length_1d(setTitles); i++) {

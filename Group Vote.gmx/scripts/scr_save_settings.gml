@@ -12,4 +12,6 @@ ini_write_real("Settings","mouseOver_color",global.mouseOver_color);
 ini_write_real("Settings","selected_color",global.selected_color);
 ini_write_real("Settings","night_mode",global.night_mode);
 ini_write_real("Settings","fullscreen",global.fullscreen);
+ini_write_real("Settings", "half_bonus", global.half_bonus);
+ini_write_real("Settings", "ignore_unvoted", global.ignore_unvoted);
 ini_close();

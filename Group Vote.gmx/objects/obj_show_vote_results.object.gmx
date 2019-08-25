@@ -34,8 +34,9 @@ starting_y = room_height/2-200;
 space = 50;
 topic = 75;
 names = 150;
-var secondRound = obj_vote_master.state == "results2";
+var half_bonus = obj_vote_master.state == "results2" and global.half_bonus;
 var itemVoted;
+var ignore_unvoted = global.ignore_unvoted and obj_vote_master.state == "results1";
 
 // Count peril, bonus and votes
 for (var i = 0; i &lt; ds_list_size(name); i++) {
@@ -50,7 +51,7 @@ for (var i = 0; i &lt; ds_list_size(name); i++) {
     if (add_votes &gt; 0) {
         itemVoted[i] = true;
         // Halven extra points on second round
-        if (secondRound)
+        if (half_bonus)
             whole[| i] = ceil((bonus[| i] + extra[| i]) / 2) + add_votes;
         else
             whole[| i] = bonus[| i] + extra[| i] + add_votes;
@@ -90,7 +91,7 @@ for (var j = 0; j &lt; ds_list_size(name)-1; j++) {
 var vote_points = global.max_points_round_1;
 var pos = 0;
 for(var i = 0; i &lt; vote_points; i++) {
-    if (obj_vote_master.state == "results1") {
+    if (ignore_unvoted) {
         // If item was not voted, don't count it in list
         if (!itemVoted[i]) {
             vote_points++; // Check 1 more item on list
@@ -104,7 +105,7 @@ for(var i = 0; i &lt; vote_points; i++) {
     item.extra = extra[| i];
     item.whole = whole[| i];
     // If second round, halven bonus points
-    if (secondRound)
+    if (half_bonus)
         item.bonuses = ceil((bonus[| i] + extra[| i]) / 2)
     else
         item.bonuses = bonus[| i] + extra[| i]
@@ -114,24 +115,43 @@ for(var i = 0; i &lt; vote_points; i++) {
     pos++;
     
     //add items which have the same value as last item
-    if (i = vote_points-1) {
-        var j = i;
-        while (whole[| j] == whole[| j+1]) {
-            item = scr_create_button(starting_x,starting_y+space*(pos+1),RESULTS_ITEM,"");
-            item.name = name[| j+1];
-            item.bonus = bonus[| j+1];
-            item.extra = extra[| j+1];
-            item.whole = whole[| j+1];
-            item.position = j+1;
-            global.round2_items += 1;
-            j += 1;
-            pos++;
+    if (i == vote_points-1) {
+        var lowestWhole = whole[| i];
+        var j = i+i;
+
+        // If list has more items check the while loop
+        if (j != ds_list_size(whole)) {
+            // While next item whole is same as lowest whole allowed
+            while (lowestWhole == whole[| j]) {
+                if (ignore_unvoted) {
+                    // If item was not voted, don't count it in list
+                    if (!itemVoted[j]) {
+                        j++ // Check 1 more item on list
+                        continue;
+                    }
+                }
+                
+                item = scr_create_button(starting_x,starting_y+space*pos,RESULTS_ITEM,"");
+                item.name = name[| j];
+                item.bonus = bonus[| j];
+                item.extra = extra[| j];
+                item.whole = whole[| j];
+                item.position = j;
+                global.round2_items += 1;
+                j ++;
+                pos++;
+                
+                // If all the items has been looped, exit while loop
+                if (j == ds_list_size(whole)) {
+                    break;
+                }
+            }
         }
     }
 }
 
 // Only do this on first vote
-if (obj_vote_master.state == "results1") {
+if (ignore_unvoted) {
     // Move all unvoted items lower than voted items
     var itemsAdded = 0;
     for (var i = 0; i &lt; array_length_1d(itemVoted); i++) {
