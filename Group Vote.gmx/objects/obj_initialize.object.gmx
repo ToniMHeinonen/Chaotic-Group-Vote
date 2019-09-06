@@ -36,7 +36,7 @@ global.peril = false;
 global.scrolling = false;
 global.page = 0;
 global.popup_sprite = spr_popup_big;
-audio_play_sound(snd_thomas,1,true);
+scr_play_random_music();
 
 // Selection
 global.selectedNormal = noone;

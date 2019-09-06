@@ -5,7 +5,10 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\snd_thomas</sound>
+    <sound>sound\mus_thomas</sound>
+    <sound>sound\mus_mikko</sound>
+    <sound>sound\mus_pelle</sound>
+    <sound>sound\mus_kakkonen</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_box</sprite>
@@ -116,6 +119,9 @@
       <script>scripts\draw_text_outline.gml</script>
       <script>scripts\scr_find_all_backgrounds.gml</script>
       <script>scripts\scr_change_room.gml</script>
+    </scripts>
+    <scripts name="Music and sound">
+      <script>scripts\scr_play_random_music.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
