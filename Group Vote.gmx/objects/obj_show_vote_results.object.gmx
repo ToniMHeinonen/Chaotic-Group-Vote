@@ -59,7 +59,7 @@ for (var i = 0; i &lt; ds_list_size(name); i++) {
 }
 
 // Sort items by whole
-for (var j = 0; j &lt; ds_list_size(name)-1; j++) {
+for (var j = 0; j &lt; ds_list_size(name); j++) {
     for (var i = 0; i &lt; ds_list_size(name)-1; i++) {
         if (scr_compare_reals(whole[| i], whole[| i+1]) == -1)  {
             var store_whole = whole[| i];
@@ -88,6 +88,14 @@ for (var j = 0; j &lt; ds_list_size(name)-1; j++) {
     }
 }
 
+// Print results to console
+for (var i = 0; i &lt; ds_list_size(name); i++) {
+    var n = name[| i];
+    var w = string(whole[| i]);
+    show_debug_message(n + " " + w);
+}
+
+// Select winners and advance them
 var vote_points = global.max_points_round_1;
 var pos = 0;
 for(var i = 0; i &lt; vote_points; i++) {
@@ -117,7 +125,7 @@ for(var i = 0; i &lt; vote_points; i++) {
     //add items which have the same value as last item
     if (i == vote_points-1) {
         var lowestWhole = whole[| i];
-        var j = i+i;
+        var j = i+1;
 
         // If list has more items check the while loop
         if (j != ds_list_size(whole)) {
@@ -136,9 +144,10 @@ for(var i = 0; i &lt; vote_points; i++) {
                 item.bonus = bonus[| j];
                 item.extra = extra[| j];
                 item.whole = whole[| j];
+                item.bonuses = bonus[| j] + extra[| j]
                 item.position = j;
                 global.round2_items += 1;
-                j ++;
+                j++;
                 pos++;
                 
                 // If all the items has been looped, exit while loop
